@@ -8,6 +8,8 @@ use App\Models\Category;
 
 use App\Models\Product;
 
+use App\Models\Resturant;
+
 class userViewController extends Controller
 {
     /**
@@ -18,8 +20,9 @@ class userViewController extends Controller
 
     public function indexx()
     {   
+        $resturants = Resturant::all();
         $categories = Category::all();
-        return view('userEnd.index',compact('categories'));
+        return view('userEnd.index',compact('categories','resturants'));
 
     }
 
@@ -83,8 +86,8 @@ class userViewController extends Controller
 
     public function shopdetail()
     {   
-
-        return view('userEnd.shop-detail');
+        $resturants = Resturant::all();
+        return view('userEnd.shop-detail',compact('resturants'));
 
     }
 
@@ -97,8 +100,9 @@ class userViewController extends Controller
 
     public function traditional()
     {   
-        $products = Product::where(['foreignproductid' => 5])->get();
-        return view('userEnd.traditional',compact('products'));
+        $category = Category::all();
+        $products = Product::where(['foreignproductid' => 1])->get();
+        return view('userEnd.traditional',compact('products','categories'));
 
     }
 

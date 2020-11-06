@@ -1,31 +1,32 @@
 @extends('admin.layouts.master')
-@section('content')
-            <!-- ALL Contents Come Here -->
+@section('content') 
+     <!-- ALL Contents Come Here -->
          <!-- Content Header (Page header) -->
             <section class="content-header">
                <div class="header-icon">
                   <i class="fa fa-users"></i>
                </div>
                <div class="header-title">
-                  <h1>Poducts</h1>
+                  <h1>Resturant List</h1>
+                  
                </div>
-            </section>  <div class="header-title">
-                   @if (session('status'))
+            </section>
+              @if (session('status'))
                      <div class="alert alert-success" role="alert">
                      {{ session('status')}}
                    </div>
                    @endif
-                  <h1>Add Products</h1>
-               </div>
             <!-- Main content -->
+         
             <section class="content">
                <div class="row">
                   <div class="col-sm-12">
                      <div class="panel panel-bd lobidrag">
                         <div class="panel-heading">
+
                            <div class="btn-group" id="buttonexport">
-                              <a href="product">
-                                 <h4>Add Products</h4>
+                              <a href="addResturants">
+                                 <h4>Add Resturant</h4>
                               </a>
                            </div>
                         </div>
@@ -33,10 +34,10 @@
                         <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                            <div class="btn-group">
                               <div class="buttonexport" id="buttonlist"> 
-                                 <a class="btn btn-add" href="product"> <i class="fa fa-plus"></i> Add Product
+                                 <a class="btn btn-add" href="addResturants"> <i class="fa fa-plus"></i> Add Resturants
                                  </a>  
                               </div>
-                             
+   
                            </div>
                            <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                            <div class="table-responsive">
@@ -44,64 +45,63 @@
                                  <thead>
                                     <tr class="info">
                                        <!-- <th>Photo</th> -->
-                                       <th class="text-center">Name</th>
-                                       <th class="text-center">Description</th>
-                                       <th class="text-center">Price</th>
-                                       <th class="text-center">Quantity</th>
-                                       <th class="text-center">Foregin_ID</th>
-                                       <!-- <th>Category Name</th> -->
-                                       <th class="text-center">Action</th>
+                                       <th>ID</th>
+                                       <th>Name</th>
+                                       <th>Description</th>
+                                       <th>Status</th>
+                                       <th>Action</th>
                                     </tr>
                                  </thead>
                                  <tbody>
-                                    @foreach($product as $products)
-                                    <tr>                                       
-                                       <td class="text-center">{{$products->name}}</td>
-                                       <td class="text-center">{{$products->description}}</td>                                     
-                                       <td class="text-center">{{$products->price}}</td>
-                                       <td class="text-center">{{$products->quantity}}</td>
-                                       <!--  -->
-                                       <td class="text-center">{{$products->foreignproductid}}</td>
-                                       <td class="text-center">
-                                          <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="{{'#edit'.$products->id}}"><i class="fa fa-pencil"></i></button>
-                                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{'#delete'.$products->id}}"><i class="fa fa-trash-o"></i> </button>
+                                     @foreach($resturant as $resturant)
+                                    <tr>
+                                       <td>
+                                          {{$resturant->id}}
                                        </td>
+                                       <td>
+                                          {{$resturant->name}}
+                                       </td>
+                                       <td>
+                                          {{$resturant->description}}
+                                       </td>
+                                       <td>
+                                          {{$resturant->status}}
+                                       </td>
+                                       
+                                       <td>
+                                          <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="{{'#edit'.$resturant->id}}"><i class="fa fa-pencil"></i></button>
+                                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{'#delete'.$resturant->id}}"><i class="fa fa-trash-o"></i> </button>
+                                       </td>
+                                      
 <!-- edit Modal -->
- <div class="modal fade" id="{{'edit'.$products->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+ <div class="modal fade" id="{{'edit'.$resturant->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                  
 <div class="modal-dialog">
    <div class="modal-content">
       <div class="modal-header modal-header-primary">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3><i class="fa fa-user m-r-5"></i> Update Product</h3>
+          <h3><i class="fa fa-user m-r-5"></i> Update Category</h3>
       </div>
     <div class="modal-body">
          <div class="row">
       \               <div class="col-md-12">
-                                 <form action="{{ route('product.update',$products->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
+                                 <form action="{{ route('resturant.update',$resturant->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
                                     @method('PUT')
                                     <fieldset>
                                        <!-- Text input-->
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Category Name:</label>
-                                          <input type="text" placeholder="Customer Name" name="name" value="{{$products->name}}" class="form-control">
+                                          <label class="control-label">Resturant Name:</label>
+                                          <input type="text" placeholder="Resturant Name" name="namee" value="{{$resturant->name}}" class="form-control">
                                        </div>
                                         <div class="col-md-4 form-group">
                                           <label class="control-label">Description:</label>
-                                          <input type="textarea" placeholder="Customer Name" name="description" value="{{$products->description}}" class="form-control">
-                                       </div>
-                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Price:</label>
-                                          <input type="text" placeholder="Products Price" name="price" value="{{$products->price}}" class="form-control">
+                                          <input type="textarea" placeholder="Resturant Description" name="descriptionn" value="{{$resturant->description}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Quantity:</label>
-                                          <input type="text" placeholder="Customer Name" name="quantity" value="{{$products->quantity}}" class="form-control">
+                                          <label class="control-label">Status:</label>
+                                          <input type="text" name="statuss" placeholder="Customer Name" value="{{$resturant->status}}" class="form-control">
                                        </div>
-                                       <div class="col-md-4 form-group">
-                                          <label class="control-label">ForeginId:</label>
-                                          <input type="text" placeholder="Customer Name" name="fid" value="{{$products->foreignproductid}}" class="form-control">
-                                       </div>
+                                        
                                        <div class="col-md-12 form-group user-form-group">
                                           <div class="pull-right">
                                              <button type="button" class="btn btn-danger btn-sm">Cancel</button>
@@ -123,21 +123,21 @@
                </div>
                                     <!-- end Edit Modal -->
 <!-- Start Delete Modal -->
- <div class="modal fade" id="{{'delete'.$products->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+ <div class="modal fade" id="{{'delete'.$resturant->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog">
                      <div class="modal-content">
                         <div class="modal-header modal-header-primary">
                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                           <h3><i class="fa fa-user m-r-5"></i> Delete Product</h3>
+                           <h3><i class="fa fa-user m-r-5"></i> Delete Category</h3>
                         </div>
                         <div class="modal-body">
                            <div class="row">
                               <div class="col-md-12">
-                                 <form action="{{ route('product.destroy',$products->id) }}" method="POST"  class="form-horizontal">{{ csrf_field() }}
+                                 <form action="{{ route('resturant.destroy',$resturant->id) }}" method="POST"  class="form-horizontal">{{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                     <fieldset>
                                        <div class="col-md-12 form-group user-form-group">
-                                          <label class="control-label">Delete Product</label>
+                                          <label class="control-label">Delete Category</label>
                                           <div class="pull-right">
                                              <button type="button" class="btn btn-danger btn-sm">NO</button>
                                              <button type="submit" class="btn btn-add btn-sm">YES</button>
@@ -156,9 +156,9 @@
                   </div>
                   <!-- /.modal-dialog -->
                </div>
-<!-- End Delete Modal -->                                       
-                                    </tr>
-                                    @endforeach
+<!-- End Delete Modal -->
+                                  </tr>
+                                   @endforeach 
                                  </tbody>
                               </table>
                            </div>
@@ -166,10 +166,16 @@
                      </div>
                   </div>
                </div>
+               <!-- Edit Modal -->
+               <!-- customer Modal1 -->
+               
+               <!-- /.modal -->
+               <!-- Modal -->    
+               <!-- Customer Modal2 -->
+              
+               <!-- /.modal -->
             </section>
             <!-- /.content -->
             
 
-
- @endsection
-         <!-- /.content-wrapper -->
+@endsection

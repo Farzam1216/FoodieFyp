@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Category;
+use App\Models\Resturant;
 
 use Illuminate\Support\Facades\Session;
 
-class CategoryController extends Controller
+class ResturantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +18,14 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::orderBy('name')->paginate(20);
-        return view('admin.Categories.list', compact('categories'));
-        
-
+        $resturant = Resturant::all();
+        return view('admin.Resturants.list',compact('resturant'));
     }
+    public function add()
+    {
+        return view('admin.Resturants.add');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,15 +50,15 @@ class CategoryController extends Controller
             'description' => 'required',  
             'status'=>'required',
         ]);
-        $category = new Category;
-        $category->name= $request->input ('name');
-        $category->description= $request->input ('description');
-        $category->status= $request->input ('status');
+        $resturant = new Resturant;
+        $resturant->name= $request->input ('name');
+        $resturant->description= $request->input ('description');
+        $resturant->status= $request->input ('status');
 
-        $category->save();
+        $resturant->save();
 
         Session::flash('statuscode' , 'success');
-        return redirect('/category')->with('status' ,'CATEGORY ADDED SUCCESSFULLY ');
+        return redirect('/resturant')->with('status' ,'RESTURANT ADDED SUCCESSFULLY ');
     }
 
     /**
@@ -78,7 +81,6 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
-
     }
 
     /**
@@ -88,17 +90,16 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Resturant $resturant)
     {
         //
-        // dd($request->all());
-        $category->name = $request->input('name');
-        $category->description = $request->input('description');
-        $category->status = $request->input('status');
+        $resturant->name = $request->input('namee');
+        $resturant->description = $request->input('descriptionn');
+        $resturant->status = $request->input('statuss');
 
-        $category->update();
+        $resturant->update();
         Session::flash('statuscode', 'success');
-        return redirect('/category')->with('status', 'Category Updated Successfully');
+        return redirect('/resturant')->with('status', 'Resturant Updated Successfully');
     }
 
     /**
@@ -110,10 +111,9 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
-        $category = Category::findorfail($id);
-        $category->delete();
+        $resturant = Resturant::findorfail($id);
+        $resturant->delete();
 
-        return redirect('/category')->with('status', 'Category Deleted Successfully');
-
+        return redirect('/resturant')->with('status', 'Resturant Deleted Successfully');
     }
 }

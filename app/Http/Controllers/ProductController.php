@@ -29,8 +29,8 @@ class ProductController extends Controller
     public function list()
     {
          $product =Product::all();
-        $categories =Category::all();
-        return view('admin.Products.list', compact('categories','product'));
+        $category =Category::all();
+        return view('admin.Products.list', compact('category','product'));
 
     }
     

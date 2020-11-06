@@ -103,24 +103,15 @@
         </div>
         <div class="container">
             <div class="row">
+                @foreach($resturants as $resturant)
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
                         <img class="img-fluid" src="pics/malangres.jpg" alt="" style="height: 300px"/>
-                        <a class="btn hvr-hover" href="#">Malang</a>
+                        <a class="btn hvr-hover" href="">{{$resturant->name}}</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="pics/mrchicken.jpg" alt="" style="height: 300px" />
-                        <a class="btn hvr-hover" href="#">Mr. Chicken</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="pics/ajwabakers.jpg" alt="" style="height: 300px"/>
-                        <a class="btn hvr-hover" href="#">Ajwa Bakers & Restaurants</a>
-                    </div>
-                </div>
+               
+                @endforeach
             </div>
         </div>
     </div>

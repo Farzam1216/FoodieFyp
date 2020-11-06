@@ -62,8 +62,13 @@ Route::get('/addCategories',function(){return view('admin.Categories.add');});
 Route::resource('/product', 'App\Http\Controllers\ProductController');
 Route::match(['get','post'],'listProducts','App\Http\Controllers\ProductController@list' );
 // End Products
-
+//Resturants 
+Route::resource('/resturant', 'App\Http\Controllers\ResturantController');
+Route::match(['get','post'],'addResturants','App\Http\Controllers\ResturantController@add' );
 
 });
-
+//End Resturenats
+//UserAdmin Details
+Route::resource('/user', 'App\Http\Controllers\UserAdmin');
+// End UserAdmin 
 

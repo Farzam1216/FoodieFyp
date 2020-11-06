@@ -6,7 +6,7 @@
                   <i class="fa fa-users"></i>
                </div>
                <div class="header-title">
-                  <h1>Add Category</h1>
+                  <h1>Add Resturants</h1>
                </div>
             </section>
             <!-- Main content -->
@@ -17,14 +17,14 @@
                      <div class="panel panel-bd lobidrag">
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonlist"> 
-                              <a class="btn btn-add " href="category"> 
-                              <i class="fa fa-list"></i>  Category List </a>  
+                              <a class="btn btn-add " href="resturant"> 
+                              <i class="fa fa-list"></i>  Resturants List </a>  
                            </div>
                         </div>
                         <div class="panel-body">
-                           <form action="{{ action('App\Http\Controllers\CategoryController@store') }}" class="col-sm-6" method="POST">{{ csrf_field() }}
+                           <form action="{{ action('App\Http\Controllers\ResturantController@store') }}" class="col-sm-6" method="POST">{{ csrf_field() }}
                               <div class="form-group">
-                                 <label>Name</label>
+                                 <label>Resturants Name</label>
                                  <input type="text" class="form-control" placeholder="Enter Name" name="name"  required>
                               </div>
                               <div class="form-group">

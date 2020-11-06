@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Category;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Session;
 
-class CategoryController extends Controller
+class UserAdmin extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +18,11 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::orderBy('name')->paginate(20);
-        return view('admin.Categories.list', compact('categories'));
-        
+        $user = User::all();
+        return view('admin.User.list',compact('user'));
 
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -42,20 +42,6 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-         $this->validate($request,[
-            'name' => 'required',
-            'description' => 'required',  
-            'status'=>'required',
-        ]);
-        $category = new Category;
-        $category->name= $request->input ('name');
-        $category->description= $request->input ('description');
-        $category->status= $request->input ('status');
-
-        $category->save();
-
-        Session::flash('statuscode' , 'success');
-        return redirect('/category')->with('status' ,'CATEGORY ADDED SUCCESSFULLY ');
     }
 
     /**
@@ -78,7 +64,6 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
-
     }
 
     /**
@@ -88,17 +73,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, User $user)
     {
         //
-        // dd($request->all());
-        $category->name = $request->input('name');
-        $category->description = $request->input('description');
-        $category->status = $request->input('status');
+        $user->name = $request->input('username');
+        $user->email = $request->input('useremail');
+        $user->password = $request->input('userpassword');
+        $user->role = $request->input('userrole');
 
-        $category->update();
+        $user->update();
         Session::flash('statuscode', 'success');
-        return redirect('/category')->with('status', 'Category Updated Successfully');
+        return redirect('/user')->with('status', 'USER Updated Successfully');
     }
 
     /**
@@ -110,10 +95,9 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
-        $category = Category::findorfail($id);
-        $category->delete();
+        $user = User::findorfail($id);
+        $user->delete();
 
-        return redirect('/category')->with('status', 'Category Deleted Successfully');
-
+        return redirect('/user')->with('status', 'User Deleted Successfully');
     }
 }
