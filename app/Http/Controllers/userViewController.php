@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Category;
+
+use App\Models\Product;
+
 class userViewController extends Controller
 {
     /**
@@ -11,6 +15,13 @@ class userViewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function indexx()
+    {   
+        $categories = Category::all();
+        return view('userEnd.index',compact('categories'));
+
+    }
 
     public function about()
     {   
@@ -47,12 +58,7 @@ class userViewController extends Controller
 
     }
 
-    public function indexx()
-    {   
-
-        return view('userEnd.index');
-
-    }
+    
 
     public function juices()
     {   
@@ -91,8 +97,8 @@ class userViewController extends Controller
 
     public function traditional()
     {   
-
-        return view('userEnd.traditional');
+        $products = Product::where(['foreignproductid' => 5])->get();
+        return view('userEnd.traditional',compact('products'));
 
     }
 
@@ -175,3 +181,5 @@ class userViewController extends Controller
         //
     }
 }
+
+ 

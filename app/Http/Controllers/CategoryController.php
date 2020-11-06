@@ -55,7 +55,7 @@ class CategoryController extends Controller
         $category->save();
 
         Session::flash('statuscode' , 'success');
-        return redirect('/category')->with('status' ,'CATEGORY ADDED ');
+        return redirect('/category')->with('status' ,'CATEGORY ADDED SUCCESSFULLY ');
     }
 
     /**
@@ -98,7 +98,7 @@ class CategoryController extends Controller
 
         $category->save();
         Session::flash('statuscode', 'success');
-        return redirect('/category')->with('status', 'Category has been updated');
+        return redirect('/category')->with('status', 'Category Updated Successfully');
     }
 
     /**
@@ -113,7 +113,7 @@ class CategoryController extends Controller
         $category = Category::findorfail($id);
         $category->delete();
 
-        return redirect('/category')->with('status', 'Category has been deleted');
+        return redirect('/category')->with('status', 'Category Deleted Successfully');
 
     }
 }

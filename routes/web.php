@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // USER Routes
 
 ////USER VIEW ROUTES
@@ -20,7 +21,11 @@ Route::match(['get','post'],'/','App\Http\Controllers\userViewController@indexx'
 Route::match(['get','post'],'/userindex','App\Http\Controllers\userViewController@indexx');
 Route::match(['get','post'],'about','App\Http\Controllers\userViewController@about');
 Route::match(['get','post'],'cart','App\Http\Controllers\userViewController@cart');
+
+// Route::group(['middleware' => 'auth'], function () {
 Route::match(['get','post'],'checkout','App\Http\Controllers\userViewController@checkout');
+// });
+
 
 Route::match(['get','post'],'contact-us','App\Http\Controllers\userViewController@contact');
 
@@ -38,11 +43,17 @@ Route::match(['get','post'],'traditional','App\Http\Controllers\userViewControll
 
 Route::match(['get','post'],'wishlist','App\Http\Controllers\userViewController@wishlist');
 // End User View Routes
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Admin Routes
+Route::group(['middleware' => 'admin'], function () {
+
 // Route::get('/', function(){return view('admin.Dashboard.index');});
 Route::get('/dashboard', function(){return view('admin.Dashboard.index');});
+
+
 // Categories
 Route::resource('/category', 'App\Http\Controllers\CategoryController');
 Route::get('/addCategories',function(){return view('admin.Categories.add');});
@@ -51,4 +62,8 @@ Route::get('/addCategories',function(){return view('admin.Categories.add');});
 Route::resource('/product', 'App\Http\Controllers\ProductController');
 Route::match(['get','post'],'listProducts','App\Http\Controllers\ProductController@list' );
 // End Products
+
+
+});
+
 

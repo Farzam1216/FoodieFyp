@@ -75,7 +75,7 @@ class ProductController extends Controller
         $product->save();
 
         Session::flash('statuscode' , 'success');
-        return redirect('/product')->with('status' ,'CATEGORY ADDED ');
+        return redirect('/listProducts')->with('status' ,'Product Added Successfully ');
     }
 
     /**
@@ -108,9 +108,18 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         //
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+        $product->quantity = $request->input('quantity');
+        $product->foreignproductid = $request->input('fid');
+
+        $product->update();
+        Session::flash('statuscode', 'success');
+        return redirect('/listProducts')->with('status', 'Product Updated Successfully');
     }
 
     /**
@@ -122,5 +131,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+        $product = Product::findorfail($id);
+        $product->delete();
+
+        return redirect('/listProducts')->with('status', 'Product Deleted Successfully');
     }
 }

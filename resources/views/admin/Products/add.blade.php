@@ -5,14 +5,6 @@
                <div class="header-icon">
                   <i class="fa fa-users"></i>
                </div>
-               <div class="header-title">
-                   @if (session('status'))
-                     <div class="alert alert-success" role="alert">
-                     {{ session('status')}}
-                   </div>
-                   @endif
-                  <h1>Add Products</h1>
-               </div>
             </section>
             <!-- Main content -->
             <section class="content">

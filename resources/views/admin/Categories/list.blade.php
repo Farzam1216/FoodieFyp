@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
    
 <!-- Mirrored from thememinister.com/crm/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Jun 2019 11:06:57 GMT -->
@@ -747,6 +747,7 @@
                                  <thead>
                                     <tr class="info">
                                        <!-- <th>Photo</th> -->
+                                       <th>ID</th>
                                        <th>Name</th>
                                        <th>Description</th>
                                        <th>Status</th>
@@ -756,6 +757,9 @@
                                  <tbody>
                                      @foreach($categories as $category)
                                     <tr>
+                                       <td>
+                                          {{$category->id}}
+                                       </td>
                                        <td>
                                           {{$category->name}}
                                        </td>

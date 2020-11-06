@@ -373,330 +373,7 @@
                         <li><a href="group.html">Groups</a></li>
                      </ul>
                   </li>
-                <!--   <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-shopping-basket"></i><span>Transaction</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="deposit.html">New Deposit</a></li>
-                        <li><a href="expense.html">New Expense</a></li>
-                        <li><a href="transfer.html">Transfer</a></li>
-                        <li><a href="view-tsaction.html">View transaction</a></li>
-                        <li><a href="balance.html">Balance Sheet</a></li>
-                        <li><a href="treport.html">Transfer Report</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-shopping-cart"></i><span>Sales</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="invoice.html">Invoices</a></li>
-                        <li><a href="ninvoices.html">New Invoices</a></li>
-                        <li><a href="recurring.html">Recurring invoices</a></li>
-                        <li><a href="nrecurring.html">New Recurring invoices</a></li>
-                        <li><a href="quote.html">quotes</a></li>
-                        <li><a href="nquote.html">New quote</a></li>
-                        <li><a href="payment.html">Payments</a></li>
-                        <li><a href="taxeport.html">Tax Rates</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-book"></i><span>Task</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="rtask.html">Running Task</a></li>
-                        <li><a href="atask.html">Archive Task</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-shopping-bag"></i><span>Accounting</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="cpayment.html">Client payment</a></li>
-                        <li><a href="emanage.html">Expense management</a></li>
-                        <li><a href="ecategory.html">Expense Category</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-file-text"></i><span>Report</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="preport.html">Project Report</a></li>
-                        <li><a href="creport.html">Client Report</a></li>
-                        <li><a href="ereport.html">Expense Report</a></li>
-                        <li><a href="incomexp.html">Income expense comparesion</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-bell"></i><span>Attendance</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="thistory.html">Time History</a></li>
-                        <li><a href="timechange.html">Time Change Request</a></li>
-                        <li><a href="atreport.html">Attendance Report</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-edit"></i><span>Recruitment</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="jpost.html">Jobs Posted</a></li>
-                        <li><a href="japp.html">Jobs Application</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-shopping-basket"></i><span>payroll</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="salary.html">Salary Template</a></li>
-                        <li><a href="hourly.html">Hourly</a></li>
-                        <li><a href="managesal.html">Manage salary</a></li>
-                        <li><a href="empsallist.html">Employee salary list</a></li>
-                        <li><a href="mpayment.html">Make payment</a></li>
-                        <li><a href="generatepay.html">Generate payslip</a></li>
-                        <li><a href="paysum.html">Payroll summary</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-bitbucket-square"></i><span>Stock</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="stockcat.html">Stock category</a></li>
-                        <li><a href="manstock.html">Manage Stock</a></li>
-                        <li><a href="astock.html">Assign stock</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-ticket"></i><span>Tickets</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="ticanswer.html">Answered</a></li>
-                        <li><a href="ticopen.html">Open</a></li>
-                        <li><a href="iprocess.html">Inprocess</a></li>
-                        <li><a href="close.html">CLosed</a></li>
-                        <li><a href="allticket.html">All Tickets</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-list"></i>
-                     <span>Utilities</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="ativitylog.html">Activity Log</a></li>
-                        <li><a href="emailmes.html">Email message log</a></li>
-                        <li><a href="systemsts.html">System status</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-bar-chart"></i><span>Charts</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li class=""><a href="charts_flot.html">Flot Chart</a></li>
-                        <li><a href="charts_Js.html">Chart js</a></li>
-                        <li><a href="charts_morris.html">Morris Charts</a></li>
-                        <li><a href="charts_sparkline.html">Sparkline Charts</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-briefcase"></i>
-                     <span>Icons</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="icons_bootstrap.html">Bootstrap Icons</a></li>
-                        <li><a href="icons_fontawesome.html">Fontawesome Icon</a></li>
-                        <li><a href="icons_flag.html">Flag Icons</a></li>
-                        <li><a href="icons_material.html">Material Icons</a></li>
-                        <li><a href="icons_weather.html">Weather Icons </a></li>
-                        <li><a href="icons_line.html">Line Icons</a></li>
-                        <li><a href="icons_pe.html">Pe Icons</a></li>
-                        <li><a href="icon_socicon.html">Socicon Icons</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-list"></i> <span>Other page</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                        <li><a href="forget_password.html">Forget password</a></li>
-                        <li><a href="lockscreen.html">Lockscreen</a></li>
-                        <li><a href="404.html">404 Error</a></li>
-                        <li><a href="505.html">505 Error</a></li>
-                        <li><a href="blank.html">Blank Page</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-bitbucket"></i><span>UI Elements</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="buttons.html">Buttons</a></li>
-                        <li><a href="tabs.html">Tabs</a></li>
-                        <li><a href="notification.html">Notification</a></li>
-                        <li><a href="tree-view.html">Tree View</a></li>
-                        <li><a href="progressbars.html">Progressber</a></li>
-                        <li><a href="list.html">List View</a></li>
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="panels.html">Panels</a></li>
-                        <li><a href="modals.html">Modals</a></li>
-                        <li><a href="icheck_toggle_pagination.html">iCheck, Toggle, Pagination</a></li>
-                        <li><a href="labels-badges-alerts.html">Labels, Badges, Alerts</a></li>
-                     </ul>
-                  </li>
-                  <li class="treeview">
-                     <a href="#">
-                     <i class="fa fa-gear"></i>
-                     <span>settings</span>
-                     <span class="pull-right-container">
-                     <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                     </a>
-                     <ul class="treeview-menu">
-                        <li><a href="gsetting.html">Genaral settings</a></li>
-                        <li><a href="stfsetting.html">Staff settings</a></li>
-                        <li><a href="emailsetting.html">Email settings</a></li>
-                        <li><a href="paysetting.html">Payment</a></li>
-                     </ul>
-                  </li>
-                  <li>
-                     <a href="company.html">
-                     <i class="fa fa-home"></i> <span>Companies</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="holiday.html">
-                     <i class="fa fa-stop-circle"></i> <span>Public Holiday</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="user.html">
-                     <i class="fa fa-user-circle"></i><span>User</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="items.html">
-                     <i class="fa fa-file-o"></i><span>Items</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="department.html">
-                     <i class="fa fa-tree"></i><span>Departments</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="document.html">
-                     <i class="fa fa-file-text"></i> <span>Documents</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="train.html">
-                     <i class="fa fa-clock-o"></i><span>Training</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="calender.html">
-                     <i class="fa fa-calendar"></i> <span>Calender</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="notice.html">
-                     <i class="fa fa-file-text"></i> <span>Notice Board</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="message.html">
-                     <i class="fa fa-envelope-o"></i> <span>Message</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="note.html">
-                     <i class="fa fa-comment"></i> <span>Notes</span>
-                     <span class="pull-right-container">
-                     </span>
-                     </a>
-                  </li>
-               </ul> -->
-            </div>
-            <!-- /.sidebar -->
+               <!-- /.sidebar --> 
          </aside>
          <!-- =============================================== -->
          <!-- Content Wrapper. Contains page content -->
@@ -712,7 +389,14 @@
                <div class="header-title">
                   <h1>Poducts</h1>
                </div>
-            </section>
+            </section>  <div class="header-title">
+                   @if (session('status'))
+                     <div class="alert alert-success" role="alert">
+                     {{ session('status')}}
+                   </div>
+                   @endif
+                  <h1>Add Products</h1>
+               </div>
             <!-- Main content -->
             <section class="content">
                <div class="row">
@@ -740,68 +424,61 @@
                                  <thead>
                                     <tr class="info">
                                        <!-- <th>Photo</th> -->
-                                       <th>Name</th>
-                                       <th>Description</th>
-                                       <th>Price</th>
-                                       <th>Quantity</th>
-                                       <th>Action</th>
+                                       <th class="text-center">Name</th>
+                                       <th class="text-center">Description</th>
+                                       <th class="text-center">Price</th>
+                                       <th class="text-center">Quantity</th>
+                                       <th class="text-center">Foregin_ID</th>
+                                       <th class="text-center">Action</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     @foreach($product as $products)
                                     <tr>                                       
-                                       <td>{{$products->name}}</td>
-                                       <td>{{$products->description}}</td>                                     
-                                       <td>{{$products->price}}</td>
-                                       <td>{{$products->quantity}}</td>
-                                       <td>
-                                          <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="#customer1"><i class="fa fa-pencil"></i></button>
-                                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#customer2"><i class="fa fa-trash-o"></i> </button>
+                                       <td class="text-center">{{$products->name}}</td>
+                                       <td class="text-center">{{$products->description}}</td>                                     
+                                       <td class="text-center">{{$products->price}}</td>
+                                       <td class="text-center">{{$products->quantity}}</td>
+                                       <td class="text-center">{{$products->foreignproductid}}</td>
+                                       <td class="text-center">
+                                          <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="{{'#edit'.$products->id}}"><i class="fa fa-pencil"></i></button>
+                                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{'#delete'.$products->id}}"><i class="fa fa-trash-o"></i> </button>
                                        </td>
-                                    </tr>
-                                    @endforeach
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- customer Modal1 -->
-               <div class="modal fade" id="customer1" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog">
-                     <div class="modal-content">
-                        <div class="modal-header modal-header-primary">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                           <h3><i class="fa fa-user m-r-5"></i> Update Customer</h3>
-                        </div>
-                        <div class="modal-body">
-                           <div class="row">
-                              <div class="col-md-12">
-                                 <form class="form-horizontal">
+<!-- edit Modal -->
+ <div class="modal fade" id="{{'edit'.$products->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                 
+<div class="modal-dialog">
+   <div class="modal-content">
+      <div class="modal-header modal-header-primary">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3><i class="fa fa-user m-r-5"></i> Update Product</h3>
+      </div>
+    <div class="modal-body">
+         <div class="row">
+      \               <div class="col-md-12">
+                                 <form action="{{ route('product.update',$products->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
+                                    @method('PUT')
                                     <fieldset>
                                        <!-- Text input-->
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Customer Name:</label>
-                                          <input type="text" placeholder="Customer Name" class="form-control">
+                                          <label class="control-label">Category Name:</label>
+                                          <input type="text" placeholder="Customer Name" name="name" value="{{$products->name}}" class="form-control">
                                        </div>
-                                       <!-- Text input-->
+                                        <div class="col-md-4 form-group">
+                                          <label class="control-label">Description:</label>
+                                          <input type="textarea" placeholder="Customer Name" name="description" value="{{$products->description}}" class="form-control">
+                                       </div>
+                                        <div class="col-md-4 form-group">
+                                          <label class="control-label">Price:</label>
+                                          <input type="text" placeholder="Products Price" name="price" value="{{$products->price}}" class="form-control">
+                                       </div>
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Email:</label>
-                                          <input type="email" placeholder="Email" class="form-control">
+                                          <label class="control-label">Quantity:</label>
+                                          <input type="text" placeholder="Customer Name" name="quantity" value="{{$products->quantity}}" class="form-control">
                                        </div>
-                                       <!-- Text input-->
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Mobile</label>
-                                          <input type="number" placeholder="Mobile" class="form-control">
-                                       </div>
-                                       <div class="col-md-6 form-group">
-                                          <label class="control-label">Address</label><br>
-                                          <textarea name="address" rows="3"></textarea>
-                                       </div>
-                                       <div class="col-md-6 form-group">
-                                          <label class="control-label">type</label>
-                                          <input type="text" placeholder="type" class="form-control">
+                                          <label class="control-label">ForeginId:</label>
+                                          <input type="text" placeholder="Customer Name" name="fid" value="{{$products->foreignproductid}}" class="form-control">
                                        </div>
                                        <div class="col-md-12 form-group user-form-group">
                                           <div class="pull-right">
@@ -822,23 +499,23 @@
                   </div>
                   <!-- /.modal-dialog -->
                </div>
-               <!-- /.modal -->
-               <!-- Modal -->    
-               <!-- Customer Modal2 -->
-               <div class="modal fade" id="customer2" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <!-- end Edit Modal -->
+<!-- Start Delete Modal -->
+ <div class="modal fade" id="{{'delete'.$products->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog">
                      <div class="modal-content">
                         <div class="modal-header modal-header-primary">
                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                           <h3><i class="fa fa-user m-r-5"></i> Delete Customer</h3>
+                           <h3><i class="fa fa-user m-r-5"></i> Delete Product</h3>
                         </div>
                         <div class="modal-body">
                            <div class="row">
                               <div class="col-md-12">
-                                 <form class="form-horizontal">
+                                 <form action="{{ route('product.destroy',$products->id) }}" method="POST"  class="form-horizontal">{{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
                                     <fieldset>
                                        <div class="col-md-12 form-group user-form-group">
-                                          <label class="control-label">Delete Customer</label>
+                                          <label class="control-label">Delete Product</label>
                                           <div class="pull-right">
                                              <button type="button" class="btn btn-danger btn-sm">NO</button>
                                              <button type="submit" class="btn btn-add btn-sm">YES</button>
@@ -857,7 +534,16 @@
                   </div>
                   <!-- /.modal-dialog -->
                </div>
-               <!-- /.modal -->
+<!-- End Delete Modal -->                                       
+                                    </tr>
+                                    @endforeach
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </section>
             <!-- /.content -->
             
