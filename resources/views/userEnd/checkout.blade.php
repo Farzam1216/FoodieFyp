@@ -206,23 +206,16 @@
                                 <div class="title-left">
                                     <h3>Shopping cart</h3>
                                 </div>
+                                
                                 <div class="rounded p-2 bg-light">
                                     <div class="media mb-2 border-bottom">
-                                        <div class="media-body"> <a href="detail.html">Crispy Chicken</a>
-                                            <div class="small text-muted">Price: Rs 450 <span class="mx-2">|</span> Qty: 1 <span class="mx-2">|</span> Subtotal: Rs 450</div>
+                                        <div class="media-body"> <a href="detail.html"></a>asd
+                                            <div class="small text-muted">Price: Rs  <span class="mx-2">|</span> Qty: 1 <span class="mx-2">|</span> Subtotal: Rs 450</div>
                                         </div>
                                     </div>
-                                    <div class="media mb-2 border-bottom">
-                                        <div class="media-body"> <a href="detail.html"> Banana Ice Cream Shake</a>
-                                            <div class="small text-muted">Price: Rs 120 <span class="mx-2">|</span> Qty: 2 <span class="mx-2">|</span> Subtotal:Rs 240</div>
-                                        </div>
-                                    </div>
-                                    <div class="media mb-2">
-                                        <div class="media-body"> <a href="detail.html"> Chicken Tikka Boti</a>
-                                            <div class="small text-muted">Price: Rs 650 <span class="mx-2">|</span> Qty: 12 <span class="mx-2">|</span> Subtotal: Rs 650</div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
+                               
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-12">

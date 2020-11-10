@@ -19,12 +19,22 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/userEnd','App\Http\Controllers\userViewController');
 Route::match(['get','post'],'/','App\Http\Controllers\userViewController@indexx');
 Route::match(['get','post'],'/userindex','App\Http\Controllers\userViewController@indexx');
+Route::match(['get','post'],'/master','App\Http\Controllers\userViewController@master');
 Route::match(['get','post'],'about','App\Http\Controllers\userViewController@about');
-Route::match(['get','post'],'cart','App\Http\Controllers\userViewController@cart');
+// 
 
-// Route::group(['middleware' => 'auth'], function () {
+
+Route::group(['middleware' => 'auth'], function () {
+
 Route::match(['get','post'],'checkout','App\Http\Controllers\userViewController@checkout');
-// });
+
+//Cart 
+
+Route::resource('/cart', 'App\Http\Controllers\CartController');
+Route::get('/cart/{id}', 'App\Http\Controllers\CartController@show')->name('cartshow');
+//End cart
+
+ });
 
 
 Route::match(['get','post'],'contact-us','App\Http\Controllers\userViewController@contact');
@@ -65,10 +75,13 @@ Route::match(['get','post'],'listProducts','App\Http\Controllers\ProductControll
 //Resturants 
 Route::resource('/resturant', 'App\Http\Controllers\ResturantController');
 Route::match(['get','post'],'addResturants','App\Http\Controllers\ResturantController@add' );
-
-});
 //End Resturenats
 //UserAdmin Details
 Route::resource('/user', 'App\Http\Controllers\UserAdmin');
-// End UserAdmin 
+// End UserAdmin
 
+});
+
+
+ 
+// Route::resource('/checkout', 'App\Http\Controllers\CheckoutController');

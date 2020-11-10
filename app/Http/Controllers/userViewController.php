@@ -10,6 +10,8 @@ use App\Models\Product;
 
 use App\Models\Resturant;
 
+use App\Models\Cart;
+
 class userViewController extends Controller
 {
     /**
@@ -22,9 +24,18 @@ class userViewController extends Controller
     {   
         $resturants = Resturant::all();
         $categories = Category::all();
-        return view('userEnd.index',compact('categories','resturants'));
+        $products = Product::all();
+        return view('userEnd.index',compact('categories','resturants','products'));
 
     }
+     public function master()
+    {   
+        $resturants = Resturant::all();
+        $categories = Category::all();
+        return view('userEnd.layouts.master',compact('categories','resturants'));
+
+    }
+
 
     public function about()
     {   
@@ -42,8 +53,8 @@ class userViewController extends Controller
 
     public function checkout()
     {   
-
-        return view('userEnd.checkout');
+        $cart = Cart::all();
+        return view('userEnd.checkout',compact('cart'));
 
     }
 
@@ -102,7 +113,8 @@ class userViewController extends Controller
     {   
         $category = Category::all();
         $products = Product::where(['foreignproductid' => 1])->get();
-        return view('userEnd.traditional',compact('products','categories'));
+        $cart = Cart::all();
+        return view('userEnd.traditional',compact('products','category','cart'));
 
     }
 

@@ -76,7 +76,27 @@
                  
              </div>
              <div class="navbar-custom-menu">
-                  
+                  <ul class="nav navbar-nav">
+                     <li class="dropdown dropdown-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="assets/dist/img/avatar5.png" class="img-circle" width="45" height="45" alt="user"></a>
+                        <ul class="dropdown-menu" >
+                           
+                           <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    
+                               </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                           </li>
+                           
+                        </ul>
+                     </li>
+                  </ul>
                </div>
             </nav>
          </header>

@@ -51,7 +51,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                    <a class="navbar-brand" href="userindex"><img src="pics/logo1.png" style="width: 150px " class="logo" alt=""></a>
+                    <a class="navbar-brand" href="userindex"><img src="{{asset('front_assets/pics/logo1.png')}}" style="width: 150px " class="logo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
@@ -60,28 +60,13 @@
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item active"><a class="nav-link" href="userindex">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
-                        <li class="dropdown megamenu-fw">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Product</a>
-                            <ul class="dropdown-menu megamenu-content" role="menu">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-menu col-md-4">
-                                                             <h6 class="title text-center"><a href="traditional">Traditional Food</a></h6>
-                                        </div>
-                                        <!-- end col-3 -->
-                                        <div class="col-menu col-md-4">
-                                            <h6 class="title text-center"><a href="fastfood">Fast Food</a></h6>
-                                           
-                                        </div>
-                                        <!-- end col-3 -->
-                                        <div class="col-menu col-md-4 ">
-                                            <h6 class="title text-center"><a href="jucies">Jucies & Shakes</a></h6>
-                                            
-                                        </div>
-                                        <!-- end col-3 -->
-                                    </div>  
-                                    <!-- end row -->
-                                </li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Products</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="usercategory">Categories</a></li>
+                                <li><a href="userproducts">Products</a></li>
+                                <li><a href="userdeals">Deals</a></li>
+                                
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -93,8 +78,8 @@
                                 
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="shop-detail">Shop Details</a></li>
-                        <li class="nav-item"><a class="nav-link" href="service">Our Service</a></li>
+                        
+                        
                         <li class="nav-item"><a class="nav-link" href="contact-us">Contact Us</a></li>
                        <!--  -->
                          <!-- Authentication Links -->
@@ -135,7 +120,7 @@
                 <!-- /.navbar-collapse -->
 
                 <!-- Start Atribute Navigation -->
-                <!-- <div class="attr-nav">
+                <div class="attr-nav">
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li class="side-menu"><a href="#">
@@ -143,7 +128,7 @@
                             <span class="badge">3</span>
                     </a></li>
                     </ul>
-                </div> -->
+                </div>
                 <!-- End Atribute Navigation -->
             </div>
             <!-- Start Side Menu -->
@@ -167,7 +152,7 @@
                             <p>1x - <span class="price">$40.00</span></p>
                         </li>
                         <li class="total">
-                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <a href="cart" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
                             <span class="float-right"><strong>Total</strong>: $180.00</span>
                         </li>
                     </ul>
@@ -240,24 +225,22 @@
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
-    <!-- ALL JS FILES -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+     <!-- ALL JS FILES -->
+    <script src="{{asset('front_assets/js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('front_assets/js/popper.min.js')}}"></script>
+    <script src="{{asset('front_assets/js/bootstrap.min.js')}}"></script>
     <!-- ALL PLUGINS -->
-    <script src="js/jquery.superslides.min.js"></script>
-    <script src="js/bootstrap-select.js"></script>
-    <script src="js/inewsticker.js"></script>
-    <script src="js/bootsnav.js."></script>
-    <script src="js/images-loded.min.js"></script>
-    <script src="js/isotope.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/baguetteBox.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/form-validator.min.js"></script>
-    <script src="js/contact-form-script.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{asset('front_assets/js/jquery.superslides.min.js')}}"></script>
+    <script src="{{asset('front_assets/js/bootstrap-select.js')}}"></script>
+    <script src="{{asset('front_assets/js/inewsticker.js')}}"></script>
+    <script src="{{asset('front_assets/js/bootsnav.js')}}"></script>
+    <script src="{{asset('front_assets/js/images-loded.min.js')}}"></script>
+    <script src="{{asset('front_assets/js/isotope.min.js')}}"></script>
+    <script src="{{asset('front_assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('front_assets/js/baguetteBox.min.js')}}"></script>
+    <script src="{{asset('front_assets/js/form-validator.min.js')}}"></script>
+    <script src="{{asset('front_assets/js/contact-form-script.js')}}"></script>
+    <script src="{{asset('front_assets/js/custom.js')}}"></script>
 </body>
 
 </html>

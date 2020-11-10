@@ -89,7 +89,45 @@
         </div>
     </div>
     <!-- End Categories -->
+ <div class="shop-detail-box-main">
+        <div class="container">
+            
 
+            <div class="row my-5">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Featured Products</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    </div>
+                    <div class="featured-products-box owl-carousel owl-theme">
+                        @foreach($products as $products)
+                        <div class="item">
+                            <div class="products-single fix">
+                                <div class="box-img-hover">
+                                    <img src="images/img-pro-01.jpg" class="img-fluid" alt="Image">
+                                    <div class="mask-icon">
+                                        <ul>
+                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                        </ul>
+                                        <a class="cart" href="#">Add to Cart</a>
+                                    </div>
+                                </div>
+                                <div class="why-text">
+                                    <h4>{{$products->name}}</h4>
+                                    <h5>PKR {{$products->price}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- slider -->
     <!-- Our Restaurants  -->
     <div class="categories-restaurants">
         <div class="container">
