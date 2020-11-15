@@ -51,7 +51,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                    <a class="navbar-brand" href="{{url('userindex')}}"><img src="pics/logo1.png" style="width: 150px " class="logo" alt=""></a>
+                    <a class="navbar-brand" href="{{url('userindex')}}"><img src="{{asset('front_assets/pics/logo1.png')}}" style="width: 150px " class="logo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
@@ -63,8 +63,8 @@
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Products</a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{url('#')}}">Categories</a></li>
-                                <li><a href="{{url('#')}}">Products</a></li>
+                                <li><a href="{{url('usercategory')}}">Categories</a></li>
+                                <li><a href="{{url('userproducts')}}">Products</a></li>
                                 <li><a href="{{url('#')}}">Deals</a></li>
                                 
                             </ul>

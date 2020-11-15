@@ -8,6 +8,8 @@ use App\Models\Product;
 
 use App\Models\Category;
 
+use Image;
+
 use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
@@ -28,7 +30,7 @@ class ProductController extends Controller
 
     public function list()
     {
-         $product =Product::all();
+        $product =Product::all();
         $category =Category::all();
         return view('admin.Products.list', compact('category','product'));
 
@@ -70,7 +72,25 @@ class ProductController extends Controller
         $product->price= $request->input ('price');
         $product->description= $request->input ('description');
         $product->quantity= $request->input ('quantity');
-       
+         if ($request->hasfile('image')) {
+                # code...
+                echo $img_tmp=$request->file('image');
+                if ($img_tmp->isValid()) {
+                    # code...
+                
+
+                //image path code
+
+                $extension=$img_tmp->getClientOriginalExtension();
+                $filename=rand(111,999999).'.'.$extension;
+                $img_path=public_path('Uploadimages/Products/' . $filename);
+
+                //image resize
+
+                Image::make($img_tmp)->resize(500,500)->save($img_path);
+                $product->image=$filename;
+                }    
+            }
 
         $product->save();
 
@@ -116,6 +136,30 @@ class ProductController extends Controller
         $product->price = $request->input('price');
         $product->quantity = $request->input('quantity');
         $product->foreignproductid = $request->input('fid');
+
+         if ($request->hasfile('image')) {
+                # code...
+                echo $img_tmp=$request->file('image');
+                if ($img_tmp->isValid()) {
+                    # code...
+                
+
+                //image path code
+
+                $extension=$img_tmp->getClientOriginalExtension();
+                $filename=rand(111,999999).'.'.$extension;
+                $img_path=public_path('Uploadimages/Products/' . $filename);
+
+                //image resize
+
+                Image::make($img_tmp)->resize(500,500)->save($img_path);
+                $product->image=$filename;
+                }    
+            }
+            else{
+                $filename=$request->input('current_image');
+                $product->image=$filename;
+            }
 
         $product->update();
         Session::flash('statuscode', 'success');

@@ -33,13 +33,13 @@
                                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                             <div class="products-single fix">
                                                 <div class="box-img-hover">
-                                                    <img src="pics/chickenkarahi.jpg" style="height: 350px "  class="img-fluid" alt="Image">
+                                                    <img src="{{asset('/Uploadimages/Products/'.$products->image)}}" style="height: 350px "  class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
                                                          <form action="{{route('cart.store')}}" method="POST">{{csrf_field()}}
                                                          <input type="hidden" name="name" value="{{$products->name}}">
                                                          <input type="hidden" name="price" value="{{$products->price}}"> 
                                                         <input class="cart  btn btn-danger" type="submit" name="" value="Add To Cart">
-                                                    <!-- <a class="cart" type="submit"  role='button' >Add to Cart</a> -->
+                                                      
                                                    </form> </div>
                                                 </div>
                                                 <div class="why-text title-all text-center">

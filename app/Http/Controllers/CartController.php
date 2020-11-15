@@ -10,6 +10,12 @@ use App\Models\Category;
 
 use App\Models\Cart;
 
+use App\Models\User;
+
+use Auth;
+
+use DB;
+
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
@@ -22,8 +28,15 @@ class CartController extends Controller
     public function index()
     {
         //
+        if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
         $products = Product::all();
-        $cart = Cart::all();
+        
         return view('userEnd.cart',compact('products','cart'));
     }
 
@@ -46,10 +59,25 @@ class CartController extends Controller
     public function store(Request $request)
     {
         //
+        if(empty(Auth::user()->email)){
+            $data['user_email'] = '';
+        }else{
+            $data['user_email'] = Auth::user()->email;
+            $user_email = Auth::user()->email;
+        }
+
+        $session_id = Session::get('session_id');
+        if(empty($session_id)){
+        $session_id = str_random(40);
+        Session::put('session_id',$session_id);
+        }
+
+
         $cart = new Cart;
         $cart->name= $request->input ('name');
         $cart->price= $request->input ('price');
-        
+        $cart->session_id=$session_id;
+        $cart->email=$user_email;
 
         $cart->save();
 
@@ -66,9 +94,7 @@ class CartController extends Controller
     public function show($id)
     {
         //
-        $products = Product::find($id);
-        $cart = Cart::all();
-        return view('userEnd.cart',compact('products','cart'));
+       
          
     }
 

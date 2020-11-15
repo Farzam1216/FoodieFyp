@@ -44,6 +44,7 @@
                                  <thead>
                                     <tr class="info">
                                        <!-- <th>Photo</th> -->
+                                       <th class="text-center">Image</th>
                                        <th class="text-center">Name</th>
                                        <th class="text-center">Description</th>
                                        <th class="text-center">Price</th>
@@ -55,7 +56,11 @@
                                  </thead>
                                  <tbody>
                                     @foreach($product as $products)
-                                    <tr>                                       
+                                    <tr>
+                                    <td class="text-center">
+                                           <img src="{{asset('/Uploadimages/Products/'.$products->image)}}" alt="" style="width:100px;">
+                                          
+                                       </td>                                       
                                        <td class="text-center">{{$products->name}}</td>
                                        <td class="text-center">{{$products->description}}</td>                                     
                                        <td class="text-center">{{$products->price}}</td>
@@ -78,7 +83,7 @@
     <div class="modal-body">
          <div class="row">
       \               <div class="col-md-12">
-                                 <form action="{{ route('product.update',$products->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
+                                 <form action="{{ route('product.update',$products->id) }}" method="POST" class="form-horizontal" enctype="multipart/form-data">{{ csrf_field() }}
                                     @method('PUT')
                                     <fieldset>
                                        <!-- Text input-->
@@ -101,6 +106,12 @@
                                        <div class="col-md-4 form-group">
                                           <label class="control-label">ForeginId:</label>
                                           <input type="text" placeholder="Customer Name" name="fid" value="{{$products->foreignproductid}}" class="form-control">
+                                       </div>
+                                       <div class="col-md-6  form-group">
+                                          <label class="control-label">Image </label>
+                                          <input type="file" value="{{$products->image}}" class="form-control" name="image"  > 
+                                           <input type="hidden" required="" name="current_image" value="{{$products->image}}"> 
+                                           <img style="width:100px;margin-top:10px;" src="{{asset('/Uploadimages/Products/'.$products->image)}}">
                                        </div>
                                        <div class="col-md-12 form-group user-form-group">
                                           <div class="pull-right">

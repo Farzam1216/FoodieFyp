@@ -12,6 +12,10 @@ use App\Models\Resturant;
 
 use App\Models\Cart;
 
+use Auth;
+
+use Illuminate\Support\Facades\Session;
+
 class userViewController extends Controller
 {
     /**
@@ -25,50 +29,97 @@ class userViewController extends Controller
         $resturants = Resturant::all();
         $categories = Category::all();
         $products = Product::all();
-        return view('userEnd.index',compact('categories','resturants','products'));
+        if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        return view('userEnd.index',compact('categories','resturants','products','cart'));
 
     }
      public function master()
     {   
+         if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
         $resturants = Resturant::all();
         $categories = Category::all();
-        return view('userEnd.layouts.master',compact('categories','resturants'));
+        return view('userEnd.layouts.master',compact('categories','resturants','cart'));
 
     }
 
 
     public function about()
     {   
-
-        return view('userEnd.about');
+         if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        return view('userEnd.about',compact('cart'));
 
     }
 
-    public function cart()
-    {   
-
-        return view('userEnd.cart');
-
+    public function categories()
+    {
+        $categories=Category::all();
+        $products=Product::all();
+        return view('userEnd.categories',compact('categories','products'));
     }
+
+     public function newcategories($category_id)
+    {
+        $categories=Category::all();
+        $products = Product::where(['foreignproductid'=>$category_id])->get();
+        return view('userEnd.categories',compact('categories','products'));
+    }
+    
+    
 
     public function checkout()
     {   
-        $cart = Cart::all();
+        if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
         return view('userEnd.checkout',compact('cart'));
 
     }
 
     public function contact()
     {   
-
-        return view('userEnd.contact-us');
+         if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        return view('userEnd.contact-us',compact('cart'));
 
     }
 
     public function fastfood()
     {   
-
-        return view('userEnd.fastfood');
+         if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        return view('userEnd.fastfood',compact('cart'));
 
     }
 
@@ -76,15 +127,40 @@ class userViewController extends Controller
 
     public function juices()
     {   
+         if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        return view('userEnd.jucies',compact('cart'));
 
-        return view('userEnd.jucies');
+    }
+
+    public function thanks()
+    {   
+         if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        return view('userEnd.thanks',compact('cart'));
 
     }
 
     public function myaccount()
     {   
-
-        return view('userEnd.my-account');
+         if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        return view('userEnd.my-account',compact('cart'));
 
     }
 
@@ -104,16 +180,23 @@ class userViewController extends Controller
 
     public function shop()
     {   
-
-        return view('userEnd.shop');
+         if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        return view('userEnd.shop',compact('cart'));
 
     }
 
     public function traditional()
     {   
         $category = Category::all();
-        $products = Product::where(['foreignproductid' => 1])->get();
         $cart = Cart::all();
+        $products = Product::where(['foreignproductid'=>1])->get();
+        
         return view('userEnd.traditional',compact('products','category','cart'));
 
     }

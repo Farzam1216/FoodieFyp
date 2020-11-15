@@ -44,31 +44,36 @@
                                  <thead>
                                     <tr class="info">
                                        <!-- <th>Photo</th> -->
-                                       <th>ID</th>
-                                       <th>Name</th>
-                                       <th>Description</th>
-                                       <th>Status</th>
-                                       <th>Action</th>
+                                       <th class="text-center">ID</th>
+                                       <th class="text-center">Image</th>
+                                       <th class="text-center">Name</th>
+                                       <th class="text-center">Description</th>
+                                       <th class="text-center">Status</th>
+                                       <th class="text-center">Action</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                      @foreach($categories as $category)
                                     <tr>
-                                       <td>
+                                       <td class="text-center">
                                           {{$category->id}}
                                        </td>
-                                       <td>
+                                       <td class="text-center">
+                                           <img src="{{asset('/Uploadimages/Categories/'.$category->image)}}" alt="" style="width:100px;">
+                                          
+                                       </td>
+                                       <td class="text-center">
                                           {{$category->name}}
                                        </td>
-                                       <td>
+                                       <td class="text-center">
                                           {{$category->description}}
                                        </td>
-                                       <td>
+                                       <td class="text-center">
                                           <span class="label-custom label label-default"> 
                                           {{$category->status}}   
                                           </span>
                                        </td>
-                                       <td>
+                                       <td class="text-center">
                                           <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="{{'#edit'.$category->id}}"><i class="fa fa-pencil"></i></button>
                                           <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{'#delete'.$category->id}}"><i class="fa fa-trash-o"></i> </button>
                                        </td>
@@ -85,7 +90,7 @@
     <div class="modal-body">
          <div class="row">
       \               <div class="col-md-12">
-                                 <form action="{{ route('category.update',$category->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
+                                 <form enctype="multipart/form-data"  action="{{ route('category.update',$category->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
                                     @method('PUT')
                                     <fieldset>
                                        <!-- Text input-->
@@ -97,13 +102,19 @@
                                           <label class="control-label">Description:</label>
                                           <input type="textarea" placeholder="Customer Name" name="description" value="{{$category->description}}" class="form-control">
                                        </div>
+                                       <div class="col-md-6  form-group">
+                                          <label class="control-label">Image </label>
+                                          <input type="file" value="{{$category->image}}" class="form-control" name="image"  > 
+                                           <input type="hidden" required="" name="current_image" value="{{$category->image}}"> 
+                                           <img style="width:100px;margin-top:10px;" src="{{asset('/Uploadimages/Categories/'.$category->image)}}">
+                                       </div>
                                         <div class="col-md-4 form-group">
                                           <label class="control-label">Status:</label>
                                           <input type="text" name="status" placeholder="Customer Name" value="{{$category->status}}" class="form-control">
                                        </div>
                                        <div class="col-md-12 form-group user-form-group">
                                           <div class="pull-right">
-                                             <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                                             <button type="button"  data-dismiss="modal" class="btn btn-danger btn-sm">Cancel</button>
                                              <button type="submit" class="btn btn-add btn-sm">Save</button>
                                           </div>
                                        </div>
@@ -138,7 +149,7 @@
                                        <div class="col-md-12 form-group user-form-group">
                                           <label class="control-label">Delete Category</label>
                                           <div class="pull-right">
-                                             <button type="button" class="btn btn-danger btn-sm">NO</button>
+                                             <button  data-dismiss="modal" type="button" class="btn btn-danger btn-sm">NO</button>
                                              <button type="submit" class="btn btn-add btn-sm">YES</button>
                                           </div>
                                        </div>

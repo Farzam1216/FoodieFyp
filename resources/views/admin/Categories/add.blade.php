@@ -22,7 +22,7 @@
                            </div>
                         </div>
                         <div class="panel-body">
-                           <form action="{{ action('App\Http\Controllers\CategoryController@store') }}" class="col-sm-6" method="POST">{{ csrf_field() }}
+                           <form action="{{ action('App\Http\Controllers\CategoryController@store') }}" class="col-sm-6" enctype="multipart/form-data" method="POST">{{ csrf_field() }}
                               <div class="form-group">
                                  <label>Name</label>
                                  <input type="text" class="form-control" placeholder="Enter Name" name="name"  required>
@@ -30,6 +30,11 @@
                               <div class="form-group">
                                  <label>Description</label>
                                  <textarea name="description" class="form-control" id="description" rows="3" required></textarea>
+                                
+                              </div>
+                              <div class="form-group">
+                                 <label>Image </label>
+                                 <input type="file" class="form-control" name="image"  required>
                                 
                               </div>
                               <div class="form-check">
@@ -45,7 +50,8 @@
                               </div> -->
                               <div class="reset-button">
                                  <input type="reset" name="" class="btn btn-warning"  value="Reset">
-                                 <button class="btn btn-success">Save</button>
+                                 <input type="submit" name=""  value="Save" class="btn btn-success" value="Reset">
+                                 
                               </div>
                            </form>
                         </div>

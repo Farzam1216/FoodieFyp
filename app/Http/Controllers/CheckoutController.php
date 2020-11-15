@@ -4,6 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Product;
+
+use App\Models\Category;
+
+use App\Models\Cart;
+
+use App\Models\User;
+
+use App\Models\Checkout;
+
+use Auth;
+
+use Illuminate\Support\Facades\Session;
+
 class CheckoutController extends Controller
 {
     /**
@@ -14,6 +28,17 @@ class CheckoutController extends Controller
     public function index()
     {
         //
+
+        if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        $checkout=Checkout::where(['email'=>$user_email])->get();
+        return view('userEnd.checkout',compact('cart','checkout'));
+
     }
 
     /**
@@ -35,6 +60,36 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         //
+        if(empty(Auth::user()->email)){
+            $data['user_email'] = '';
+        }else{
+            $data['user_email'] = Auth::user()->email;
+            $user_email = Auth::user()->email;
+        }
+
+        if(empty(Auth::user()->name)){
+            $data['user_name'] = '';
+        }else{
+            $data['user_name'] = Auth::user()->name;
+            $user_name = Auth::user()->name;
+        }
+
+       
+        
+
+        $check = new Checkout;
+        $check->name= $user_name;
+        $check->email= $user_email;
+        $check->address= $request->input ('address');
+        $check->country= $request->input ('country');
+        $check->city= $request->input ('city');
+        $check->zip= $request->input ('zip');
+
+        $check->save();
+
+        Session::flash('statuscode' , 'success');
+        return redirect('/checkout')->with('status' ,' Billing Address Added Successfully');
+
     }
 
     /**

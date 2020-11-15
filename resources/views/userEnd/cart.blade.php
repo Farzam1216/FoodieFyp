@@ -69,7 +69,7 @@
                                 </a>
                                     </td>
                                     <td class="price-pr text-center">
-                                        <p>PKR {{$cart->price}}</p>
+                                        <p>Rs {{$cart->price}}</p>
                                     </td>
                                     <td class="name-pr text-center">
                                         
@@ -124,7 +124,7 @@
 
                                     </td>
                                     <td class="total-pr text-center">
-                                        <p>PKR {{$cart->price * $cart->quantity}}</p>
+                                        <p>RS {{$cart->price * $cart->quantity}}</p>
                                     </td>
                                     <td class="remove-pr ">
                                         <button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="{{'#delete'.$cart->id}}"><i class="fa fa-trash-o"></i><i class="fas fa-times"></i> </button>

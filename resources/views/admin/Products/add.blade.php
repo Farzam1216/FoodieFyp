@@ -19,7 +19,7 @@
                            </div>
                         </div>
                         <div class="panel-body">
-                           <form action="{{ action('App\Http\Controllers\ProductController@store') }}" class="col-sm-6" method="POST">{{ csrf_field() }}
+                           <form action="{{ action('App\Http\Controllers\ProductController@store') }}" class="col-sm-6" enctype="multipart/form-data" method="POST">{{ csrf_field() }}
                               <div class="form-group">
                                   <label for="category">Select Category</label>
                             <select class="form-control" name="foregin">
@@ -44,6 +44,10 @@
                               <div class="form-group">
                                  <label>Quantity</label>
                                  <input type="text" class="form-control" placeholder="Enter Product Quantity" name="quantity"  required>
+                              </div>
+                               <div class="form-group">
+                                 <label>Image</label>
+                                 <input type="file" class="form-control"  name="image"  required>
                               </div>
                               <div class="form-check">
                                  <label>Status</label><br>

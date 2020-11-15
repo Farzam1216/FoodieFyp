@@ -21,20 +21,23 @@ Route::match(['get','post'],'/','App\Http\Controllers\userViewController@indexx'
 Route::match(['get','post'],'/userindex','App\Http\Controllers\userViewController@indexx');
 Route::match(['get','post'],'/master','App\Http\Controllers\userViewController@master');
 Route::match(['get','post'],'about','App\Http\Controllers\userViewController@about');
+Route::match(['get','post'],'usercategory','App\Http\Controllers\userViewController@categories');
+Route::get('/categories/{category_id}','App\Http\Controllers\userViewController@newcategories');
 // 
 
-
+// Middleware for User 
 Route::group(['middleware' => 'auth'], function () {
-
+//Checkout Routes
 Route::match(['get','post'],'checkout','App\Http\Controllers\userViewController@checkout');
-
+Route::resource('/checkout', 'App\Http\Controllers\CheckoutController');
+// End Checkout
 //Cart 
-
 Route::resource('/cart', 'App\Http\Controllers\CartController');
-Route::get('/cart/{id}', 'App\Http\Controllers\CartController@show')->name('cartshow');
 //End cart
+Route::match(['get','post'],'thanks','App\Http\Controllers\userViewController@thanks');
 
  });
+// End User Middleware
 
 
 Route::match(['get','post'],'contact-us','App\Http\Controllers\userViewController@contact');
@@ -50,6 +53,7 @@ Route::match(['get','post'],'shop-detail','App\Http\Controllers\userViewControll
 
 Route::match(['get','post'],'shop','App\Http\Controllers\userViewController@shop');
 Route::match(['get','post'],'traditional','App\Http\Controllers\userViewController@traditional');
+
 
 Route::match(['get','post'],'wishlist','App\Http\Controllers\userViewController@wishlist');
 // End User View Routes

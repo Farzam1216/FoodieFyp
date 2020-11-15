@@ -79,7 +79,7 @@
                 @foreach($categories as $categories)
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="pics/desifood1.jpg" alt="" style="height: 300px"/>
+                        <img class="img-fluid" src="{{asset('/Uploadimages/Categories/'.$categories->image)}}" alt="" style="height: 300px"/>
                         <a class="btn hvr-hover" href="{{$categories->name}}">{{$categories->name}}</a>
                     </div>
                 </div>
