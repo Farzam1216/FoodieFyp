@@ -116,12 +116,14 @@
                                                     </div>
                                                 <img src="{{asset('/Uploadimages/Products/'.$product->image)}}" class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
-                                                        <ul>
-                                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                                        </ul>
-                                                    <a class="cart" href="{{url('/products/'.$product->id)}}">Detail Page</a>
+                                                        
+                                                        <form action="{{route('cart.store')}}" method="POST">{{csrf_field()}}
+                                                         <input type="hidden" name="name" value="{{$product->name}}">
+                                                         <input type="hidden" name="price" value="{{$product->price}}"> 
+                                                        <input class="cart  btn btn-danger" type="submit" name="" value="Add To Cart">
+                                                      
+                                                   </form>
+                                                    
                                                     </div>
                                                 </div>
                                                 <div class="why-text">

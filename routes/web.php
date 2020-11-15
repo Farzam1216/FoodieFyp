@@ -34,8 +34,15 @@ Route::resource('/checkout', 'App\Http\Controllers\CheckoutController');
 //Cart 
 Route::resource('/cart', 'App\Http\Controllers\CartController');
 //End cart
-Route::match(['get','post'],'thanks','App\Http\Controllers\userViewController@thanks');
+//Order Controller
+Route::resource('/orderreview', 'App\Http\Controllers\OrderController');
+// end order
+//Order Review
 
+//End Order  Revew
+//Thanks Pge
+Route::match(['get','post'],'thanks','App\Http\Controllers\userViewController@thanks');
+//End thanks page
  });
 // End User Middleware
 

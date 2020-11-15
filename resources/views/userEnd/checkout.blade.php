@@ -140,6 +140,7 @@
                                 <div class="title-left">
                                     <h3 class="">Shopping cart</h3>
                                 </div>
+                                <?php $total_amount = 0; ?>
                                 @foreach($cart as $carts)
                                 <div class="rounded p-2 bg-light">
                                     <div class="media mb-2 border-bottom">
@@ -149,13 +150,17 @@
                                     </div>
                                     
                                 </div>
+                                 <?php 
+                                $deliverycharges = 150;
+                                $total_amount = $total_amount + ($carts->price*$carts->quantity); 
+                                ?>
                                 @endforeach
                                
                             </div>
                         </div>
                         
                     </div>
-          <hr class="mb-1">
+          
 
                              </form>
                     </div>
@@ -167,39 +172,33 @@
                                 <div class="title-left">
                                     <h3>Your order</h3>
                                 </div>
+                                <hr class="mb-4">
+
                                 <div class="d-flex">
-                                    <div class="font-weight-bold">Product</div>
-                                    <div class="ml-auto font-weight-bold">Total</div>
-                                </div>
-                                <hr class="my-1">
-                                <div class="d-flex">
-                                    <h4>Sub Total</h4>
-                                    <div class="ml-auto font-weight-bold"> Rs 1340</div>
+                                    <h4>Cart Sub Total</h4>
+
+                                    <div class="ml-auto font-weight-bold"> PKR  {{$total_amount}} </div>
                                 </div>
                                 <div class="d-flex">
-                                    <h4>Discount</h4>
-                                    <div class="ml-auto font-weight-bold"> Rs 0</div>
+                                    <h4>Delivery Charges (+)</h4>
+                                    <div class="ml-auto font-weight-bold">PKR <?php 
+                                    $deliverycharges = 150;    
+                                    echo $deliverycharges; ?> </div>
                                 </div>
                                 <hr class="my-1">
                                 
-                                <div class="d-flex">
-                                    <h4>Tax</h4>
-                                    <div class="ml-auto font-weight-bold"> Rs 5</div>
-                                </div>
-                                <div class="d-flex">
-                                    <h4>Shipping Cost</h4>
-                                    <div class="ml-auto font-weight-bold"> Free </div>
-                                </div>
-                                <hr>
+                                
+                                
                                 <div class="d-flex gr-total">
                                     <h5>Grand Total</h5>
-                                    <div class="ml-auto h5"> Rs 1345</div>
+                                    <div class="ml-auto h5"> PKR {{$grand_total = $total_amount + $deliverycharges}} </div>
                                 </div>
-                                <hr> </div>
+                                            <hr> </div>
+                                    </div>
+                                    <div class="col-12 d-flex shopping-box"> <a href="orderreview" class="ml-auto btn hvr-hover">Place Order</a>
+                               </div>
                         </div>
-                        <div class="col-12 d-flex shopping-box"> <a href="userindex" class="ml-auto btn hvr-hover">Place Order</a> </div>
-                    </div>
-                </div>
+                  </div>
             </div>
 
         </div>

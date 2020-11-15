@@ -12,6 +12,8 @@ use App\Models\Resturant;
 
 use App\Models\Cart;
 
+use App\Models\Checkout;
+
 use Auth;
 
 use Illuminate\Support\Facades\Session;
@@ -162,6 +164,20 @@ class userViewController extends Controller
         }
         return view('userEnd.my-account',compact('cart'));
 
+    }
+
+    public function orderreview()
+    {
+
+        if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        $checkout=Checkout::where(['email'=>$user_email])->get();
+        return view('userEnd.orderreview',compact('cart','checkout'));
     }
 
     public function service()
