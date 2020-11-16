@@ -14,6 +14,8 @@ use App\Models\Cart;
 
 use App\Models\Order;
 
+use App\Models\OrderItem;
+
 use App\Models\Checkout;
 
 use DB;
@@ -74,19 +76,25 @@ class OrderController extends Controller
         $orders->usercity = $request->input ('usercity');
         $orders->userzip = $request->input ('userzip');
         $orders->usertotal = $request->input ('usertotal');
-
-        $orders->itemname = $request->input ('itemname');
-        $orders->itemprice = $request->input ('itemprice');
-        $orders->itemquantity = $request->input ('itemquantity');
-        $orders->itemtotal = $request->input ('itemtotal');
-        
         $orders->save();
-
+        $cartitems= DB::table('carts')->where(['email'=>$orders->useremail])->get();
        
+        foreach ($cartitems as $key => $items){
+            # code...
+        $ordersitems= new OrderItem;
+        $ordersitems->orderid=$orders->id;
+        $ordersitems->userName=$orders->username;
+        $ordersitems->userEmail=$orders->useremail;
+        $ordersitems->name=$items->name;
+        $ordersitems->price=$items->price;
+        $ordersitems->quantity=$items->quantity;
+        $ordersitems->totalPrice=$items->price * $items->quantity;
+        $ordersitems->grandTotal = $request->input ('usertotal');        
+        $ordersitems->save();
+        }
         DB::table('carts')->where('email' , $orders->useremail)->delete();
- 
         Session::flash('statuscode' , 'success');
-        return redirect('/thanks')->with('status' ,' Billing Address Added Successfully');
+        return redirect('/thanks')->with('status' ,' Order Placed Successfully');
     }
 
     /**

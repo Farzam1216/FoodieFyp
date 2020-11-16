@@ -16,6 +16,8 @@ use App\Models\Checkout;
 
 use Auth;
 
+use DB;
+
 use Illuminate\Support\Facades\Session;
 
 class userViewController extends Controller
@@ -210,7 +212,9 @@ class userViewController extends Controller
     public function traditional()
     {   
         $category = Category::all();
+        $cat=new Category;
         $cart = Cart::all();
+        // $products = DB::table('products')->whereColumn('foreignproductid', 'foreignproductid')->get();
         $products = Product::where(['foreignproductid'=>1])->get();
         
         return view('userEnd.traditional',compact('products','category','cart'));

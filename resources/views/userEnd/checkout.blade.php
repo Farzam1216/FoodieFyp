@@ -78,9 +78,9 @@
                                 </div>
                                 
                                 <div class=" mb-3">
-                                    <label for="zip">Zip *</label>
+                                    <label for="zip">Mobile *</label>
                                     <input name="zip" type="text" class="form-control" id="zip" placeholder="" required>
-                                    <div class="invalid-feedback"> Zip code required. </div>
+                                    <div class="invalid-feedback"> Mobile required. </div>
                                 </div>
                                
                             
@@ -118,7 +118,7 @@
                                 <input value="{{$check->city}}" disabled class="form-control" id="InputPassword1" placeholder="Password"> </div>
 
                             <div class="form-group col-md-6">
-                                <label for="InputEmail1" class="mb-0">Zip</label>
+                                <label for="InputEmail1" class="mb-0">Mobile</label>
                                 <input value="{{$check->zip}}" disabled class="form-control" id="InputEmail1" placeholder="Enter Email"> </div>                                        
                                 @endforeach
                         </div>

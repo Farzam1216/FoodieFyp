@@ -82,16 +82,6 @@
         </div>
 
         <form action="{{route('orderreview.store')}}" method="POST"> {{csrf_field()}}
-           
-           
-
-           @foreach($Cart as $cart)
-           <input type="hidden" name="itemname" value="{{$cart->name}}">
-           <input type="hidden" name="itemprice" value="{{$cart->price}}">
-           <input type="hidden" name="itemquantity" value="{{$cart->quantity}}">
-           <input type="hidden" name="itemtotal" value="{{$cart->price * $cart->quantity}}">
-           @endforeach
-
            @foreach($checkout as $checkout)
            <input type="hidden" name="username" value="{{$checkout->name}}">
            <input type="hidden" name="useremail" value="{{$checkout->email}}">
@@ -101,11 +91,6 @@
            <input type="hidden" name="userzip" value="{{$checkout->zip}}">
            <input type="hidden" name="usertotal" value="{{$grand_total = $total_amount + $deliverycharges}}">
            @endforeach 
-           
-           
-           
-           
-
             <hr class="mb-4">
             <div class="title-left">
                 <h3>Payments</h3>

@@ -90,6 +90,8 @@ Route::match(['get','post'],'addResturants','App\Http\Controllers\ResturantContr
 //UserAdmin Details
 Route::resource('/user', 'App\Http\Controllers\UserAdmin');
 // End UserAdmin
+// Order Details Admin Side
+Route::resource('/order', 'App\Http\Controllers\AdminOrderController');
 
 });
 
