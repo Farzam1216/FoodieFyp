@@ -164,7 +164,8 @@
                      </span>
                      </a>
                      <ul class="treeview-menu">
-                        <li><a href="order">List</a></li>  
+                        <li><a href="order">Order List</a></li>
+                        <li><a href="orderitem">Order Items List</a></li>  
                      </ul>
                   </li>
                    <li class="treeview">

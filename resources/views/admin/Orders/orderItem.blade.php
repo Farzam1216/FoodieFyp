@@ -7,7 +7,7 @@
                   <i class="fa fa-users"></i>
                </div>
                <div class="header-title">
-                  <h1>Orders Details </h1>
+                  <h1>Order Items List</h1>
                   
                </div>
             </section>
@@ -25,7 +25,7 @@
 
                            <div class="btn-group" id="buttonexport">
                               <a href="addCategories">
-                                 <h4>Orders List</h4>
+                                 <h4>Order Items</h4>
                               </a>
                            </div>
                         </div>
@@ -33,7 +33,7 @@
                         <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                            <div class="btn-group">
                               <div class="buttonexport" id="buttonlist"> 
-                                 <a class="btn btn-add" href="orderitem"> <i class=""></i> Order Item List
+                                   <a class="btn btn-add" href="order"> <i class=""></i> Order Detail List
                                  </a>  <br><br>
                               </div>
    
@@ -43,105 +43,102 @@
                               <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
                                  <thead>
                                     <tr class="info">
-                                       <!-- <th>Photo</th> -->
-                                       <th class="text-center">ID</th>
+                                       
                                        <th class="text-center">Name</th>
                                        <th class="text-center">Email</th>
-                                       <th class="text-center">Address</th>
-                                       <th class="text-center">Mobile</th>
-                                       <th class="text-center">Country</th>
-                                       <th class="text-center">City</th>
-                                       <th class="text-center">Total</th>
-                                       <th class="text-center">Payment Method</th>
+                                       <th class="text-center">Order_ID</th>
+                                       <th class="text-center">Item_Name</th>
+                                       <th class="text-center">Item_Price</th>
+                                       <th class="text-center">Quantity</th>
+                                       <th class="text-center">Total_Price</th>
+                                       <th class="text-center">Grand_Total</th>
                                        <th class="text-center">Created_at</th>
                                        <th class="text-center">Action</th>
                                     </tr>
                                  </thead>
                                  <tbody>
-                                    @foreach($orders as $order)
+                                    @foreach($ordersitem as $orderitem)
                                     <tr>
+                                       
                                        <td class="text-center">
-                                          {{$order->id}}
+                                          {{$orderitem->userName}}
                                        </td>
                                        <td class="text-center">
-                                          {{$order->username}}
+                                          {{$orderitem->userEmail}}
                                        </td>
                                        <td class="text-center">
-                                          {{$order->useremail}}
+                                          {{$orderitem->orderid}}
                                        </td>
                                        <td class="text-center">
-                                          {{$order->useraddress}}
+                                          {{$orderitem->name}}
                                        </td>
                                        <td class="text-center">
-                                          {{$order->userzip}}
+                                          {{$orderitem->price}}
                                        </td>
                                        <td class="text-center">
-                                          {{$order->usercountry}}
+                                          {{$orderitem->quantity}}
                                        </td>
                                        <td class="text-center">
-                                          {{$order->usercity}}
+                                          RS {{$orderitem->totalPrice}}   
                                        </td>
                                        <td class="text-center">
-                                          RS {{$order->usertotal}}   
+                                         RS  {{$orderitem->grandTotal}}   
                                        </td>
                                        <td class="text-center">
-                                          {{$order->paymentmethod}}   
+                                          {{$orderitem->created_at}}   
                                        </td>
                                        <td class="text-center">
-                                          {{$order->created_at}}   
-                                       </td>
-                                       <td class="text-center">
-                                          <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="{{'#edit'.$order->id}}"><i class="fa fa-pencil"></i></button>
-                                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{'#delete'.$order->id}}"><i class="fa fa-trash-o"></i> </button>
+                                          <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="{{'#edit'.$orderitem->id}}"><i class="fa fa-pencil"></i></button>
+                                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{'#delete'.$orderitem->id}}"><i class="fa fa-trash-o"></i> </button>
                                        </td>
                                       
 <!-- edit Modal -->
- <div class="modal fade" id="{{'edit'.$order->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+ <div class="modal fade" id="{{'edit'.$orderitem->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                  
 <div class="modal-dialog">
    <div class="modal-content">
       <div class="modal-header modal-header-primary">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3><i class="fa fa-user m-r-5"></i> Update Order</h3>
+          <h3><i class="fa fa-user m-r-5"></i> Update Order Item</h3>
       </div>
     <div class="modal-body">
          <div class="row">
       \               <div class="col-md-12">
-                                 <form enctype="multipart/form-data"  action="{{ route('order.update',$order->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
+                                 <form enctype="multipart/form-data"  action="{{ route('orderitem.update',$orderitem->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
                                     @method('PUT')
                                     <fieldset>
                                        <!-- Text input-->
                                        <div class="col-md-4 form-group">
                                           <label class="control-label">User Name:</label>
-                                          <input type="text" placeholder="User Name" name="username" value="{{$order->username}}" class="form-control">
+                                          <input type="text" placeholder="User Name" name="userName" value="{{$orderitem->userName}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
                                           <label class="control-label">User Email:</label>
-                                          <input type="text" placeholder="User Email" name="useremail" value="{{$order->useremail}}" class="form-control">
+                                          <input type="text" placeholder="User Email" name="userEmail" value="{{$orderitem->userEmail}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">User Address:</label>
-                                          <input type="text" placeholder="User Address" name="useraddress" value="{{$order->useraddress}}" class="form-control">
+                                          <label class="control-label">Order_ID:</label>
+                                          <input type="text" placeholder="Order_ID" name="orderid" value="{{$orderitem->orderid}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Country:</label>
-                                          <input type="text" placeholder="Country Name" name="usercountry" value="{{$order->usercountry}}" class="form-control">
+                                          <label class="control-label">name:</label>
+                                          <input type="text" placeholder="Country Name" name="name" value="{{$orderitem->name}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">City:</label>
-                                          <input type="text" placeholder="City Name" name="usercity" value="{{$order->usercity}}" class="form-control">
+                                          <label class="control-label">price:</label>
+                                          <input type="text" placeholder="City Name" name="price" value="{{$orderitem->price}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Zip Code:</label>
-                                          <input type="text" placeholder="Zip Code" name="userzip" value="{{$order->userzip}}" class="form-control">
+                                          <label class="control-label">Quantity:</label>
+                                          <input type="text" placeholder="Zip Code" name="quantity" value="{{$orderitem->quantity}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">User Total:</label>
-                                          <input type="text" placeholder="User Name" name="usertotal" value="{{$order->usertotal}}" class="form-control">
+                                          <label class="control-label">Total Price:</label>
+                                          <input type="text" placeholder="User Name" name="totalPrice" value="{{$orderitem->totalPrice}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Payment Method:</label>
-                                          <input type="text" placeholder="Payment Method" name="paymentmethod" value="{{$order->paymentmethod}}" class="form-control">
+                                          <label class="control-label">Grand Total:</label>
+                                          <input type="text" placeholder="Payment Method" name="grandTotal" value="{{$orderitem->grandTotal}}" class="form-control">
                                        </div>
                                         
                                         
@@ -166,7 +163,7 @@
                </div>
                                     <!-- end Edit Modal -->
 <!-- Start Delete Modal -->
- <div class="modal fade" id="{{'delete'.$order->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+ <div class="modal fade" id="{{'delete'.$orderitem->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog">
                      <div class="modal-content">
                         <div class="modal-header modal-header-primary">
@@ -176,7 +173,7 @@
                         <div class="modal-body">
                            <div class="row">
                               <div class="col-md-12">
-                                 <form action="{{ route('order.destroy',$order->id) }}" method="POST"  class="form-horizontal">{{ csrf_field() }}
+                                 <form action="{{ route('orderitem.destroy',$orderitem->id) }}" method="POST"  class="form-horizontal">{{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                     <fieldset>
                                        <div class="col-md-12 form-group user-form-group">

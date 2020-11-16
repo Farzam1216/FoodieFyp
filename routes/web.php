@@ -92,7 +92,9 @@ Route::resource('/user', 'App\Http\Controllers\UserAdmin');
 // End UserAdmin
 // Order Details Admin Side
 Route::resource('/order', 'App\Http\Controllers\AdminOrderController');
-
+// End Orde
+// Order Item Details ADmin Side
+Route::resource('/orderitem', 'App\Http\Controllers\AdminOrderItemController');
 });
 
 
