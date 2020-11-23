@@ -8,6 +8,8 @@ use App\Models\Resturant;
 
 use Illuminate\Support\Facades\Session;
 
+use Image;
+
 class ResturantController extends Controller
 {
     /**
@@ -49,11 +51,31 @@ class ResturantController extends Controller
             'name' => 'required',
             'description' => 'required',  
             'status'=>'required',
+            'image'=>'required',
         ]);
         $resturant = new Resturant;
         $resturant->name= $request->input ('name');
         $resturant->description= $request->input ('description');
         $resturant->status= $request->input ('status');
+         if ($request->hasfile('image')) {
+                # code...
+                echo $img_tmp=$request->file('image');
+                if ($img_tmp->isValid()) {
+                    # code...
+                
+
+                //image path code
+
+                $extension=$img_tmp->getClientOriginalExtension();
+                $filename=rand(111,999999).'.'.$extension;
+                $img_path=public_path('Uploadimages/Resturants/' . $filename);
+
+                //image resize
+
+                Image::make($img_tmp)->resize(500,500)->save($img_path);
+                $resturant->image=$filename;
+                }    
+            }
 
         $resturant->save();
 
@@ -96,6 +118,30 @@ class ResturantController extends Controller
         $resturant->name = $request->input('namee');
         $resturant->description = $request->input('descriptionn');
         $resturant->status = $request->input('statuss');
+
+        if ($request->hasfile('image')) {
+                # code...
+                echo $img_tmp=$request->file('image');
+                if ($img_tmp->isValid()) {
+                    # code...
+                
+
+                //image path code
+
+                $extension=$img_tmp->getClientOriginalExtension();
+                $filename=rand(111,999999).'.'.$extension;
+                $img_path=public_path('Uploadimages/Resturants/' . $filename);
+
+                //image resize
+
+                Image::make($img_tmp)->resize(500,500)->save($img_path);
+                $resturant->image=$filename;
+                }    
+            }
+            else{
+                $filename=$request->input('current_image');
+                $resturant->image=$filename;
+            }
 
         $resturant->update();
         Session::flash('statuscode', 'success');

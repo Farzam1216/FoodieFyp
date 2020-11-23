@@ -104,19 +104,19 @@
                         <div class="item">
                             <div class="products-single fix">
                                 <div class="box-img-hover">
-                                    <img src="images/img-pro-01.jpg" class="img-fluid" alt="Image">
+                                    <img src="{{asset('/Uploadimages/Products/'.$products->image)}}" class="img-fluid" alt="Image">
                                     <div class="mask-icon">
                                         <ul>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                            <li><a href="{{asset('/Uploadimages/Products/'.$products->image)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                         </ul>
-                                        <a class="cart" href="#">Add to Cart</a>
+                                        <a class="cart" href="{{url('productDetails/'.$products->id)}}">Product Detail</a>
                                     </div>
                                 </div>
                                 <div class="why-text">
-                                    <h4>{{$products->name}}</h4>
-                                    <h5>PKR {{$products->price}}</h5>
+                                    <h5 class="text-center">{{$products->name}}</h5>
+                                    <h5 class="text-center">PKR {{$products->price}}</h5>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                 @foreach($resturants as $resturant)
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="pics/malangres.jpg" alt="" style="height: 300px"/>
+                        <img class="img-fluid" src="{{asset('/Uploadimages/Resturants/'.$resturant->image)}}" alt="" style="height: 300px"/>
                         <a class="btn hvr-hover" href="">{{$resturant->name}}</a>
                     </div>
                 </div>
@@ -154,80 +154,4 @@
         </div>
     </div>
     <!-- End Restaurants -->
-
-    <!-- Start Products  -->
-    <div class="products-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-center">
-                        <h1> Top Featured Products</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row special-list">
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <img src="pics/fpro1.jpg" style="height: 192px" class="img-fluid" alt="Image">
-                            <div class="mask-icon">
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> Rs 150</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <img src="pics/fpro2.jpg" class="img-fluid" alt="Image">
-                            <div class="mask-icon">
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> Rs --- </h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <img src="pics/fpro.jpg" style="height: 192px" class="img-fluid" alt="Image">
-                            <div class="mask-icon">
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> Rs 130</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <img src="pics/fpro3.jpg" class="img-fluid" alt="Image">
-                            <div class="mask-icon">
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> Rs 100</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Products  -->
 @endsection

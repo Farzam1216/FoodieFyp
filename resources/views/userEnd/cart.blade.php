@@ -47,7 +47,7 @@
                     </div>
                     @endif
                                 <tr>
-                                    <th class="text-center">Images</th>
+                                    <th class="text-center">#</th>
                                     <th class="text-center">Product Name</th>
                                     <th class="text-center">Price</th>
                                     <th class="text-center">Quantity</th>
@@ -56,13 +56,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              <?php  $i=0; ?>
                                 @foreach($cart as $cart)
-                                <tr>
-                                    <td class="thumbnail-img text-center">
-                                        <a href="#">
-                                    <img class="img-fluid" src="{{ asset('front_assets/pics/c3img.jpg')}}" alt="" />
-                                </a>
-                                    </td>
+                                <tr><?php $i++ ?>
+                                    <td class="name-pr text-center"> {{$i}} </td>
                                     <td class="name-pr text-center">
                                         
                                     {{$cart->name}}

@@ -76,6 +76,7 @@ class CartController extends Controller
         $cart = new Cart;
         $cart->name= $request->input ('name');
         $cart->price= $request->input ('price');
+        $cart->quantity= $request->input ('quantity');
         $cart->session_id=$session_id;
         $cart->email=$user_email;
 

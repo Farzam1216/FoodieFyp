@@ -57,8 +57,14 @@ class CheckoutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function store(Request $request)
     {
+        
+
+
         //
         if(empty(Auth::user()->email)){
             $data['user_email'] = '';
@@ -121,9 +127,24 @@ class CheckoutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+   
+    
+
     public function update(Request $request, $id)
     {
         //
+
+            
+            $check = Checkout::find($id);
+            $check->address= $request->input ('address');
+            $check->country= $request->input ('country');
+            $check->city= $request->input ('city');
+            $check->zip= $request->input ('zip');
+            
+            $check->update();
+
+            Session::flash('statuscode' , 'success');
+            return redirect('/checkout')->with('ustatus' ,' Billing Address Updated Successfully');
     }
 
     /**

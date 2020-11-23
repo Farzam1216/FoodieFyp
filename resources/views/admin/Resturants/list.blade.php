@@ -7,7 +7,7 @@
                   <i class="fa fa-users"></i>
                </div>
                <div class="header-title">
-                  <h1>Resturant List</h1>
+                  <h1>Resturant Lists</h1>
                   
                </div>
             </section>
@@ -26,7 +26,7 @@
 
                            <div class="btn-group" id="buttonexport">
                               <a href="addResturants">
-                                 <h4>Add Resturant</h4>
+                                 <h4>Resturants Lists</h4>
                               </a>
                            </div>
                         </div>
@@ -46,6 +46,7 @@
                                     <tr class="info">
                                        <!-- <th>Photo</th> -->
                                        <th>ID</th>
+                                       <th>Image</th>
                                        <th>Name</th>
                                        <th>Description</th>
                                        <th>Status</th>
@@ -57,6 +58,9 @@
                                     <tr>
                                        <td>
                                           {{$resturant->id}}
+                                       </td>
+                                       <td>
+                                          <img style="width:100px;margin-top:10px;" src="{{asset('/Uploadimages/Resturants/'.$resturant->image)}}">{{$resturant->image}}
                                        </td>
                                        <td>
                                           {{$resturant->name}}
@@ -85,7 +89,7 @@
     <div class="modal-body">
          <div class="row">
       \               <div class="col-md-12">
-                                 <form action="{{ route('resturant.update',$resturant->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
+                                 <form enctype="multipart/form-data"  action="{{ route('resturant.update',$resturant->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
                                     @method('PUT')
                                     <fieldset>
                                        <!-- Text input-->
@@ -100,6 +104,12 @@
                                        <div class="col-md-4 form-group">
                                           <label class="control-label">Status:</label>
                                           <input type="text" name="statuss" placeholder="Customer Name" value="{{$resturant->status}}" class="form-control">
+                                       </div>
+                                       <div class="col-md-6  form-group">
+                                          <label class="control-label">Image </label>
+                                          <input type="file" value="{{$resturant->image}}" class="form-control" name="image"  > 
+                                           <input type="hidden" required="" name="current_image" value="{{$resturant->image}}"> 
+                                           <img style="width:100px;margin-top:10px;" src="{{asset('/Uploadimages/Resturants/'.$resturant->image)}}">
                                        </div>
                                         
                                        <div class="col-md-12 form-group user-form-group">

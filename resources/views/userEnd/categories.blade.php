@@ -97,6 +97,7 @@
                                 <ul class="nav nav-tabs ml-auto">
                                     <li>
                                         <a class="nav-link active" href="#grid-view" data-toggle="tab"> <i class="fa fa-th"></i> </a>
+
                                     </li>
                                     
                                 </ul>
@@ -123,7 +124,7 @@
                                                         <input class="cart  btn btn-danger" type="submit" name="" value="Add To Cart">
                                                       
                                                    </form>
-                                                    
+                                                     <a class="cart" href="{{url('/productDetails/'.$product->id)}}">Detail Page</a>
                                                     </div>
                                                 </div>
                                                 <div class="why-text">

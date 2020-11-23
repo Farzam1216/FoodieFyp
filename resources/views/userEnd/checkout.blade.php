@@ -29,7 +29,12 @@
     <!-- End All Title Box -->
 
     <!-- Start Cart  -->
-                    @if (session('status'))
+                    
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row new-account-login">
+                <div class="col-sm-6 col-lg-6 mb-3">
+                   @if (session('status'))
                     <div class="alert alert-success" role="alert">
                      {{ session('status')}}
                     </div>
@@ -39,13 +44,8 @@
                      {{ session('dstatus')}}
                     </div>
                     @endif
-    <div class="cart-box-main">
-        <div class="container">
-            <div class="row new-account-login">
-                <div class="col-sm-6 col-lg-6 mb-3">
-                   
                     <div class="title-left">
-                        <h3>Billing Info</h3>
+                        <h3>Add Billing Info If Not Already Added</h3>
                     </div>
                     <h5><a data-toggle="collapse" href="#formLogin"  role="button" aria-expanded="false" class="text-danger">Click here For Billing Address</a></h5>
                     
@@ -85,19 +85,29 @@
                                
                             
                         </div>
-                        <button type="submit" class="btn hvr-hover">ADD Billing Info</button>
-                    </form>
+                        <button type="submit" class="btn hvr-hover">ADD Billing Info</button></form>
+
+                    
+                    
                     
                 </div>
                 <div class="col-sm-6 col-lg-6 mb-3">
+                    
+                     @if (session('ustatus'))
+                    <div class="alert alert-success" role="alert">
+                     {{ session('ustatus')}}
+                    </div>
+                    @endif
                     <div class="title-left">
-                        <h3>View Billing Info</h3>
+                        <h3>View OR Edit Billing Info If Already Added</h3>
                     </div>
                     <h5>
                         <a data-toggle="collapse" href="#formRegister" role="button" aria-expanded="false" class="text-danger">Click here to View biiling Info You Added</a></h5>
-                    <form class="mt-3 collapse review-form-box" id="formRegister">
+                        @foreach($checkout as $check)
+                    <form method="POST" action="{{route('checkout.update',$check->id)}}" class="mt-3 collapse review-form-box" id="formRegister">{{csrf_field()}}
+                        @method('PUT')
                         <div class="form-row">
-                            @foreach($checkout as $check)
+                            
                             <div class="form-group col-md-6">
                                 <label for="InputName" class="mb-0">Name</label>
                                 <input value="{{$check->name}}" disabled  class="form-control" id="InputName" placeholder="First Name"> </div>
@@ -108,22 +118,22 @@
 
                             <div class="form-group col-md-6">
                                 <label for="InputEmail1" class="mb-0">Address</label>
-                                <input value="{{$check->address}}" disabled class="form-control" id="InputEmail1" placeholder="Enter Email"> </div>
+                                <input type="text" name="address" value="{{$check->address}}"  class="form-control" id="InputEmail1" placeholder="Enter Address"> </div>
 
                             <div class="form-group col-md-6">
                                 <label for="InputEmail1" class="mb-0">Country</label>
-                                <input value="{{$check->country}}" disabled class="form-control" id="InputEmail1" placeholder="Enter Email"> </div>                                    
+                                <input type="text" name="country" value="{{$check->country}}"  class="form-control" id="InputEmail1" placeholder="Enter Country Name"> </div>                                    
                             <div class="form-group col-md-6">
                                 <label for="InputPassword1" class="mb-0">City</label>
-                                <input value="{{$check->city}}" disabled class="form-control" id="InputPassword1" placeholder="Password"> </div>
+                                <input type="text" value="{{$check->city}}" name="city" class="form-control" id="InputPassword1" placeholder="Enter City Name"> </div>
 
                             <div class="form-group col-md-6">
                                 <label for="InputEmail1" class="mb-0">Mobile</label>
-                                <input value="{{$check->zip}}" disabled class="form-control" id="InputEmail1" placeholder="Enter Email"> </div>                                        
-                                @endforeach
+                                <input type="text" value="{{$check->zip}}" name="zip"  class="form-control" id="InputEmail1" placeholder="Enter Mobile Number"> </div>                                        
+                                
                         </div>
-                        
-                    </form>
+                        <button type="submit" class="btn hvr-hover">Update Billing Info</button>
+                    </form>@endforeach
                 </div>
             </div>
             <div class="row">

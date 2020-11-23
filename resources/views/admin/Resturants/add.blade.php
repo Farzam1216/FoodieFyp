@@ -22,7 +22,7 @@
                            </div>
                         </div>
                         <div class="panel-body">
-                           <form action="{{ action('App\Http\Controllers\ResturantController@store') }}" class="col-sm-6" method="POST">{{ csrf_field() }}
+                           <form action="{{ action('App\Http\Controllers\ResturantController@store') }}" class="col-sm-6" method="POST" enctype="multipart/form-data">{{ csrf_field() }}
                               <div class="form-group">
                                  <label>Resturants Name</label>
                                  <input type="text" class="form-control" placeholder="Enter Name" name="name"  required>
@@ -30,7 +30,10 @@
                               <div class="form-group">
                                  <label>Description</label>
                                  <textarea name="description" class="form-control" id="description" rows="3" required></textarea>
-                                
+                                <div class="form-group">
+                                 <label>Image</label>
+                                 <input type="file" class="form-control"  name="image"  required>
+                              </div>
                               </div>
                               <div class="form-check">
                                  <label>Status</label><br>
