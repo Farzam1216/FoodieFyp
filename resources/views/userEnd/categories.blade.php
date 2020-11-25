@@ -120,6 +120,7 @@
                                                         
                                                         <form action="{{route('cart.store')}}" method="POST">{{csrf_field()}}
                                                          <input type="hidden" name="name" value="{{$product->name}}">
+                                                         <input type="hidden" name="quantity" value="1">
                                                          <input type="hidden" name="price" value="{{$product->price}}"> 
                                                         <input class="cart  btn btn-danger" type="submit" name="" value="Add To Cart">
                                                       
