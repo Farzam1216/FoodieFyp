@@ -38,6 +38,15 @@ class AdminOrderItemController extends Controller
         return view('admin.Orders.orderitem',compact('ordersitem'));
     }
 
+    public function indexx($id)
+    {
+        //
+
+        $ordersitem=OrderItem::where(['orderid'=>$id])->get();
+        
+        return view('admin.Orders.item',compact('ordersitem'));
+    }    
+
     /**
      * Show the form for creating a new resource.
      *

@@ -22,6 +22,13 @@ class UserAdmin extends Controller
         return view('admin.User.list',compact('user'));
 
     }
+     public function indexx()
+    {
+        //
+        $user = User::where(['role'=>'Boys'])->get();
+        return view('admin.Delivery_Boys.list',compact('user'));
+
+    }
 
     /**
      * Show the form for creating a new resource.

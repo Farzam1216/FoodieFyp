@@ -25,19 +25,19 @@
                         <div class="panel-heading">
 
                            <div class="btn-group" id="buttonexport">
-                              <a href="addResturants">
+                              <a href="">
                                  <h4>Resturants Lists</h4>
                               </a>
                            </div>
                         </div>
                         <div class="panel-body">
                         <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
-                           <div class="btn-group">
+                           <div class="btn-group"> @if(Auth::user()->role == "Admin")
                               <div class="buttonexport" id="buttonlist"> 
                                  <a class="btn btn-add" href="addResturants"> <i class="fa fa-plus"></i> Add Resturants
                                  </a>  
                               </div>
-   
+                              @endif
                            </div>
                            <!-- Plugin content:powerpoint,txt,pdf,png,word,xl -->
                            <div class="table-responsive">
@@ -50,7 +50,9 @@
                                        <th>Name</th>
                                        <th>Description</th>
                                        <th>Status</th>
+                                       @if(Auth::user()->role == "Admin")
                                        <th>Action</th>
+                                       @endif
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -71,11 +73,12 @@
                                        <td>
                                           {{$resturant->status}}
                                        </td>
-                                       
+                                       @if(Auth::user()->role == "Admin")
                                        <td>
                                           <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="{{'#edit'.$resturant->id}}"><i class="fa fa-pencil"></i></button>
                                           <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{'#delete'.$resturant->id}}"><i class="fa fa-trash-o"></i> </button>
                                        </td>
+                                       @endif
                                       
 <!-- edit Modal -->
  <div class="modal fade" id="{{'edit'.$resturant->id}}" tabindex="-1" role="dialog" aria-hidden="true">

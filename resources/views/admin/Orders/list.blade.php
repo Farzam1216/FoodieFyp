@@ -24,7 +24,7 @@
                         <div class="panel-heading">
 
                            <div class="btn-group" id="buttonexport">
-                              <a href="addCategories">
+                              <a href="order">
                                  <h4>Orders List</h4>
                               </a>
                            </div>
@@ -44,16 +44,19 @@
                                  <thead>
                                     <tr class="info">
                                        <!-- <th>Photo</th> -->
-                                       <th class="text-center">ID</th>
+                                      <!--  <th class="text-center">Order_ID</th> -->
                                        <th class="text-center">Name</th>
-                                       <th class="text-center">Email</th>
+                                       <!-- <th class="text-center">Email</th> -->
                                        <th class="text-center">Address</th>
                                        <th class="text-center">Mobile</th>
-                                       <th class="text-center">Country</th>
+                                       <!-- <th class="text-center">Country</th> -->
                                        <th class="text-center">City</th>
                                        <th class="text-center">Total</th>
-                                       <th class="text-center">Payment Method</th>
+                                       <th class="text-center">Order_Items</th>
+                                       <th class="text-center">Payment_Method</th>
+                                       <th class="text-center">Order_Status</th>
                                        <th class="text-center">Created_at</th>
+                                       <th class="text-center">Updated_at</th>
                                        <th class="text-center">Action</th>
                                     </tr>
                                  </thead>
@@ -61,34 +64,36 @@
                                     @foreach($orders as $order)
                                     <tr>
                                        <td class="text-center">
-                                          {{$order->id}}
-                                       </td>
-                                       <td class="text-center">
                                           {{$order->username}}
                                        </td>
-                                       <td class="text-center">
+                                      <!--  <td class="text-center">
                                           {{$order->useremail}}
-                                       </td>
+                                       </td> -->
                                        <td class="text-center">
                                           {{$order->useraddress}}
                                        </td>
                                        <td class="text-center">
                                           {{$order->userzip}}
                                        </td>
-                                       <td class="text-center">
-                                          {{$order->usercountry}}
-                                       </td>
+                                       
                                        <td class="text-center">
                                           {{$order->usercity}}
                                        </td>
                                        <td class="text-center">
                                           RS {{$order->usertotal}}   
                                        </td>
+                                       <td class="text-center"><a class="text-danger" href="{{url('/item',$order->id)}}">Click</a></td>
                                        <td class="text-center">
                                           {{$order->paymentmethod}}   
                                        </td>
                                        <td class="text-center">
+                                          {{$order->orderStatus}}   
+                                       </td>
+                                       <td class="text-center">
                                           {{$order->created_at}}   
+                                       </td>
+                                       <td class="text-center">
+                                          {{$order->updated_at}}
                                        </td>
                                        <td class="text-center">
                                           <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="{{'#edit'.$order->id}}"><i class="fa fa-pencil"></i></button>
@@ -111,6 +116,7 @@
                                     @method('PUT')
                                     <fieldset>
                                        <!-- Text input-->
+                                       @if(Auth::user()->role == 'Admin')
                                        <div class="col-md-4 form-group">
                                           <label class="control-label">User Name:</label>
                                           <input type="text" placeholder="User Name" name="username" value="{{$order->username}}" class="form-control">
@@ -142,6 +148,11 @@
                                        <div class="col-md-4 form-group">
                                           <label class="control-label">Payment Method:</label>
                                           <input type="text" placeholder="Payment Method" name="paymentmethod" value="{{$order->paymentmethod}}" class="form-control">
+                                       </div>
+                                       @endif
+                                       <div class="col-md-4 form-group">
+                                          <label class="control-label">Order Status:</label>
+                                          <input type="text" placeholder="Order Status" name="orderStatus" value="{{$order->orderStatus}}" class="form-control">
                                        </div>
                                         
                                         

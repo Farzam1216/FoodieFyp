@@ -91,12 +91,16 @@ Route::match(['get','post'],'addResturants','App\Http\Controllers\ResturantContr
 //End Resturenats
 //UserAdmin Details
 Route::resource('/user', 'App\Http\Controllers\UserAdmin');
+Route::match(['get','post'],'list','App\Http\Controllers\UserAdmin@indexx' );
+
 // End UserAdmin
 // Order Details Admin Side
 Route::resource('/order', 'App\Http\Controllers\AdminOrderController');
 // End Orde
 // Order Item Details ADmin Side
 Route::resource('/orderitem', 'App\Http\Controllers\AdminOrderItemController');
+Route::match(['get','post'],'item/{id}','App\Http\Controllers\AdminOrderItemController@indexx');
+
 });
 
 

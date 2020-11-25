@@ -99,6 +99,7 @@ class AdminOrderController extends Controller
         $order->usercity = $request->input ('usercity');
         $order->userzip = $request->input ('userzip');
         $order->usertotal = $request->input ('usertotal');
+        $order->orderStatus = $request->input ('orderStatus');
         
         $order->update();
         Session::flash('statuscode' , 'success');

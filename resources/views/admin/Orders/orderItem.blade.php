@@ -24,7 +24,7 @@
                         <div class="panel-heading">
 
                            <div class="btn-group" id="buttonexport">
-                              <a href="addCategories">
+                              <a href="order">
                                  <h4>Order Items</h4>
                               </a>
                            </div>
@@ -51,13 +51,14 @@
                                        <th class="text-center">Item_Price</th>
                                        <th class="text-center">Quantity</th>
                                        <th class="text-center">Total_Price</th>
-                                       <th class="text-center">Grand_Total</th>
+                                       <!-- <th class="text-center">Grand_Total</th> -->
                                        <th class="text-center">Created_at</th>
                                        <th class="text-center">Action</th>
                                     </tr>
                                  </thead>
-                                 <tbody>
+                                 <tbody><?php $total_amount = 0; ?>
                                     @foreach($ordersitem as $orderitem)
+
                                     <tr>
                                        
                                        <td class="text-center">
@@ -79,11 +80,15 @@
                                           {{$orderitem->quantity}}
                                        </td>
                                        <td class="text-center">
-                                          RS {{$orderitem->totalPrice}}   
+                                          RS {{$orderitem->price*$orderitem->quantity}}   
                                        </td>
-                                       <td class="text-center">
-                                         RS  {{$orderitem->grandTotal}}   
-                                       </td>
+                                       <!-- <td class="text-center">
+                                          <?php 
+                                            $deliverycharges = 150;
+                                            $total_amount = $total_amount + ($orderitem->price*$orderitem->quantity) + $deliverycharges; 
+                                          ?>
+                                         RS  {{$total_amount}}   
+                                       </td> -->
                                        <td class="text-center">
                                           {{$orderitem->created_at}}   
                                        </td>

@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->string('userzip');
             $table->string('usertotal');
             $table->string('paymentmethod')->default('Cash_On_Delivery');
-
+            $table->string('orderStatus')->default('New_Order');
             $table->timestamps();
         });
     }
