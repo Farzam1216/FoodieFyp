@@ -79,7 +79,7 @@
                                 
                                 <div class=" mb-3">
                                     <label for="zip">Mobile *</label>
-                                    <input name="zip" type="text" class="form-control" id="zip" placeholder="" required>
+                                    <input name="zip" type="text" class="form-control" id="zip" placeholder="" required unique>
                                     <div class="invalid-feedback"> Mobile required. </div>
                                 </div>
                                

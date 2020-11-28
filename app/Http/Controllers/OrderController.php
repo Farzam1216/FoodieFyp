@@ -92,6 +92,7 @@ class OrderController extends Controller
         $ordersitems->grandTotal = $request->input ('usertotal');        
         $ordersitems->save();
         }
+        DB::table('checkouts')->where('email' , $orders->useremail)->delete();
         DB::table('carts')->where('email' , $orders->useremail)->delete();
         Session::flash('statuscode' , 'success');
         return redirect('/thanks')->with('status' ,' Order Placed Successfully');

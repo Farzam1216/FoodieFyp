@@ -35,30 +35,34 @@
                                  <thead>
                                     <tr class="info">
                                        <!-- <th>Photo</th> -->
-                                       <th>ID</th>
-                                       <th>Name</th>
-                                       <th>Email</th>
-                                       <th>Password</th>
-                                       <th>Role</th>
-                                       <th>Action</th>
+                                      <!--  <th class="text-center">ID</th> -->
+                                       <th class="text-center">Name</th>
+                                       <th class="text-center">Email</th>
+                                       <th class="text-center">Mobile</th>
+                                       <th class="text-center">Password</th>
+                                       <th class="text-center">Role</th>
+                                       <th class="text-center">Action</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                      @foreach($user as $user)
                                     <tr>
-                                       <td>
+                                       <!-- <td class="text-center">
                                           {{$user->id}}
-                                       </td>
-                                       <td>
+                                       </td> -->
+                                       <td class="text-center">
                                           {{$user->name}}
                                        </td>
-                                       <td>
+                                       <td class="text-center">
                                           {{$user->email}}
                                        </td>
-                                       <td>
+                                       <td class="text-center">
+                                          {{$user->mobile}}
+                                       </td>
+                                       <td class="text-center">
                                           {{$user->password}}
                                        </td>
-                                       <td>
+                                       <td class="text-center">
                                           {{$user->role}}
                                        </td>
                                        
@@ -90,6 +94,10 @@
                                         <div class="col-md-4 form-group">
                                           <label class="control-label">Email:</label>
                                           <input type="email" placeholder="User Email" name="useremail" value="{{$user->email}}" class="form-control">
+                                       </div>
+                                       <div class="col-md-4 form-group">
+                                          <label class="control-label">Mobile:</label>
+                                          <input type="text" placeholder="Mobile" name="mobile" value="{{$user->mobile}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
                                           <label class="control-label">Password:</label>

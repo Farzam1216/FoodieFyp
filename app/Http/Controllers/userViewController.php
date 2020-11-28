@@ -85,6 +85,18 @@ class userViewController extends Controller
         return view('productsDetails',compact('products'));
     }
 
+    public function categoryDetails($id)
+    {
+        $category = Category::where(['id'=>$id])->get();
+        return view('userEnd.categoryDetail',compact('category'));
+    }
+
+     public function resturantDetails($id)
+    {
+        $resturant = Resturant::where(['id'=>$id])->get();
+        return view('userEnd.resturantDetail',compact('resturant'));
+    }
+
      public function newcategories($category_id)
     {
         $categories=Category::all();

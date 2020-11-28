@@ -80,16 +80,23 @@ class CheckoutController extends Controller
             $user_name = Auth::user()->name;
         }
 
+        if(empty(Auth::user()->mobile)){
+            $data['user_mobile'] = '';
+        }else{
+            $data['user_mobile'] = Auth::user()->mobilr;
+            $user_mobile = Auth::user()->mobile;
+        }
        
         
 
         $check = new Checkout;
         $check->name= $user_name;
         $check->email= $user_email;
+        $check->zip= $user_mobile;
         $check->address= $request->input ('address');
         $check->country= $request->input ('country');
         $check->city= $request->input ('city');
-        $check->zip= $request->input ('zip');
+        
 
         $check->save();
 

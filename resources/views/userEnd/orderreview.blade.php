@@ -7,8 +7,44 @@
 <div class="cart-box-main">
     <div class="container">
         <div class="row">
-            
-            <div class="col-lg-12">
+            <div class="col-lg-6">
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                
+                                <th class="text-center">Name</th>
+                                <th class="text-center">City</th>
+                                <th class="text-center">Mobile</th>
+                                <th class="text-center">Address</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @foreach($checkout as $checkouts)
+                            <tr>
+                                
+                                <td class=" text-center">
+                                    {{$checkouts->name}}
+                                </td>
+                               <td class=" text-center">
+                                    {{$checkouts->city}}
+                                </td>
+                                <td class=" text-center">
+                                    {{$checkouts->zip}}
+                                </td>
+                                <td class=" text-center">
+                                    {{$checkouts->address}}    
+                                </td>
+                                
+                            </tr>
+                            
+                           @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
                 <div class="table-main table-responsive">
                     <table class="table">
                         <thead>
@@ -37,7 +73,7 @@
                                 </td>
                                 <td class="total-pr text-center">
                                     <p>PKR {{$cart->price*$cart->quantity}}</p>
-                                    </td>
+                                </td>
                                 
                             </tr>
                             <?php 

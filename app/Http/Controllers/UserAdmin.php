@@ -85,6 +85,7 @@ class UserAdmin extends Controller
         //
         $user->name = $request->input('username');
         $user->email = $request->input('useremail');
+        $user->mobile = $request->input('mobile');
         $user->password = $request->input('userpassword');
         $user->role = $request->input('userrole');
 

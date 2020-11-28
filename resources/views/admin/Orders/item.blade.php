@@ -43,9 +43,6 @@
                               <table id="dataTableExample1" class="table table-bordered table-striped table-hover">
                                  <thead>
                                     <tr class="info">
-                                       
-                                       <th class="text-center">Name</th>
-                                       <th class="text-center">Email</th>
                                        <th class="text-center">Order_ID</th>
                                        <th class="text-center">Item_Name</th>
                                        <th class="text-center">Item_Price</th>
@@ -63,13 +60,6 @@
                                     @foreach($ordersitem as $orderitem)
                                     
                                     <tr>
-                                       
-                                       <td class="text-center">
-                                          {{$orderitem->userName}}
-                                       </td>
-                                       <td class="text-center">
-                                          {{$orderitem->userEmail}}
-                                       </td>
                                        <td class="text-center">
                                           {{$orderitem->orderid}}
                                        </td>
@@ -110,14 +100,13 @@
                                     @method('PUT')
                                     <fieldset>
                                        <!-- Text input-->
-                                       <div class="col-md-4 form-group">
-                                          <label class="control-label">User Name:</label>
-                                          <input type="text" placeholder="User Name" name="userName" value="{{$orderitem->userName}}" class="form-control">
-                                       </div>
-                                       <div class="col-md-4 form-group">
-                                          <label class="control-label">User Email:</label>
-                                          <input type="text" placeholder="User Email" name="userEmail" value="{{$orderitem->userEmail}}" class="form-control">
-                                       </div>
+                                     
+                                          <input type="hidden" placeholder="User Name" name="userName" value="{{$orderitem->userName}}" class="form-control">
+                                       
+                                      
+                                          
+                                          <input type="hidden" placeholder="User Email" name="userEmail" value="{{$orderitem->userEmail}}" class="form-control">
+                                       
                                        <div class="col-md-4 form-group">
                                           <label class="control-label">Order_ID:</label>
                                           <input type="text" placeholder="Order_ID" name="orderid" value="{{$orderitem->orderid}}" class="form-control">

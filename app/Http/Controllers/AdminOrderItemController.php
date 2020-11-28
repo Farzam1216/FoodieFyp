@@ -111,7 +111,7 @@ class AdminOrderItemController extends Controller
         $item->grandTotal = $request->input ('grandTotal');     
         $item->update();
         Session::flash('statuscode' , 'success');
-        return redirect('/orderitem')->with('status' ,' Order Item Updated Successfully');
+        return redirect('/item/'.$item->orderid)->with('status' ,' Order Item Updated Successfully');
     }
 
     /**

@@ -22,7 +22,7 @@
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br>Foodie</strong></h1>
                             <h2 style="color: white">Taste of this savoury dish, it gets limited to few words like delicious, lip smacking, awesome, spicy, mouthwatering, moist, dry, succulent etc</h2>
-                            <p><a class="btn hvr-hover" href="#">Shop Now</a></p>
+                            <p><a class="btn hvr-hover" href="usercategory">Shop Now</a></p>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
                         <img class="img-fluid" src="{{asset('/Uploadimages/Categories/'.$categories->image)}}" alt="" style="height: 300px"/>
-                        <a class="btn hvr-hover" href="{{$categories->name}}">{{$categories->name}}</a>
+                        <a class="btn hvr-hover" href="{{url('categoryDetail/'.$categories->id)}}">{{$categories->name}}</a>
                     </div>
                 </div>
                
@@ -145,7 +145,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
                         <img class="img-fluid" src="{{asset('/Uploadimages/Resturants/'.$resturant->image)}}" alt="" style="height: 300px"/>
-                        <a class="btn hvr-hover" href="">{{$resturant->name}}</a>
+                        <a class="btn hvr-hover" href="{{url('resturantDetail/'.$resturant->id)}}">{{$resturant->name}}</a>
                     </div>
                 </div>
                

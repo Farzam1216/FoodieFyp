@@ -6,8 +6,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div align="center">
-                        <h2>YOUR COD ORDER HAS BEEN PLACED</h2>
-                        <p>Your Order Number is {{Session::get('order_id')}} and total payable about is PKR {{Session::get('grand_total')}}</p>
+                        <h2>YOUR ORDER HAS BEEN PLACED </h2>
                     </div>
                 </div>
             </div>
