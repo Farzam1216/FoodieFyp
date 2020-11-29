@@ -23,7 +23,6 @@
                         <tbody>
                            @foreach($checkout as $checkouts)
                             <tr>
-                                
                                 <td class=" text-center">
                                     {{$checkouts->name}}
                                 </td>
@@ -40,6 +39,11 @@
                             </tr>
                             
                            @endforeach
+                           
+                           <tr>
+                               <th colspan="4" class="text-center  "><h1><a class="text-white text-danger" href="checkout">Add Address If Not Added</a></h1></th>
+                           </tr>
+                           
                         </tbody>
                     </table>
                 </div>
@@ -138,7 +142,7 @@
                 </div>
                 
                 <div class="col-12 d-flex shopping-box">
-                    <button  type="submit" class="ml-auto btn hvr-hover"  style="color:white;">Place Order</button> 
+                    <button type="submit" class="ml-auto btn hvr-hover text-white"  >Place Order </button> 
                 </div>
             </div>
         </form>

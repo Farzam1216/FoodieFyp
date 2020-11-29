@@ -58,20 +58,20 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
                     <div class="product-categori">
-                        <div class="search-product">
+                        <!-- <div class="search-product">
                             <form action="#">
                                 <input class="form-control" placeholder="Search here..." type="text">
                                 <button type="submit"> <i class="fa fa-search"></i> </button>
                             </form>
-                        </div>
+                        </div> -->
                         <div class="filter-sidebar-left">
                             <div class="title-left">
                                 <h3>Categories</h3>
                             </div>
                             <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" >
                                 @foreach($categories as $cat)
-                                <div class="list-group-collapse ">
-                                  <h1><b><a href="{{url('/categories/'.$cat->id)}}" class="list-group-item  list-group-item-action">{{$cat->name}}</b></h1> 
+                                <div class=" ">
+                                  <h1><a href="{{url('/categories/'.$cat->id)}}" class="list-group-item  list-group-item-action">{{$cat->name}}</h1> 
 								</a>
                                     <div class="collapse" id="{{$cat->id}}" data-parent="#list-group-men">
                                         <div class="list-group">
@@ -89,7 +89,7 @@
                 </div>
                 <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
                     <div class="right-product-box">
-                        <div class="product-item-filter row">
+                        <!-- <div class="product-item-filter row">
                             <div class="col-12 col-sm-8 text-center text-sm-left">
                                 
                             </div>
@@ -102,7 +102,7 @@
                                     
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row product-categorie-box">
                             <div class="tab-content">

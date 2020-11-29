@@ -76,24 +76,11 @@
                                 </select>
                                     <div class="invalid-feedback"> Please select a valid country. </div>
                                 </div>
-                                
-                                <div class=" mb-3">
-                                    <label for="zip">Mobile *</label>
-                                    <input name="zip" type="text" class="form-control" id="zip" placeholder="" required unique>
-                                    <div class="invalid-feedback"> Mobile required. </div>
-                                </div>
-                               
-                            
                         </div>
-                        <button type="submit" class="btn hvr-hover">ADD Billing Info</button></form>
-
-                    
-                    
-                    
+                    <button type="submit" class="btn hvr-hover">ADD Billing Info</button></form>
                 </div>
                 <div class="col-sm-6 col-lg-6 mb-3">
-                    
-                     @if (session('ustatus'))
+                    @if (session('ustatus'))
                     <div class="alert alert-success" role="alert">
                      {{ session('ustatus')}}
                     </div>

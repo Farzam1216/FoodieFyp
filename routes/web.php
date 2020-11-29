@@ -22,10 +22,11 @@ Route::match(['get','post'],'/userindex','App\Http\Controllers\userViewControlle
 Route::match(['get','post'],'/master','App\Http\Controllers\userViewController@master');
 Route::match(['get','post'],'about','App\Http\Controllers\userViewController@about');
 Route::match(['get','post'],'usercategory','App\Http\Controllers\userViewController@categories');
+Route::get('/categories/{category_id}','App\Http\Controllers\userViewController@newcategories');
 Route::match(['get','post'],'categoryDetail/{id}','App\Http\Controllers\userViewController@categoryDetails');
 Route::match(['get','post'],'productDetails/{id}','App\Http\Controllers\userViewController@productDetails');
 Route::match(['get','post'],'resturantDetail/{id}','App\Http\Controllers\userViewController@resturantDetails');
-Route::get('/categories/{category_id}','App\Http\Controllers\userViewController@newcategories');
+
 // 
 
 // Middleware for User 

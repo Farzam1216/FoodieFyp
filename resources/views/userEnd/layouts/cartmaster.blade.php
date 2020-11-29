@@ -63,7 +63,7 @@
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Products</a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{url('usercategory')}}">Categories</a></li>
+                                <li><a href="{{url('usercategory')}}">Products Categories</a></li>
                                 <li><a href="{{url('userproducts')}}">Products</a></li>
                                 <li><a href="{{url('#')}}">Deals</a></li>
                                 
@@ -118,7 +118,7 @@
                 <!-- /.navbar-collapse -->
 
                 <!-- Start Atribute Navigation -->
-                <div class="attr-nav">
+                <!-- <div class="attr-nav">
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li class="side-menu"><a href="#">
@@ -126,7 +126,7 @@
                             <span class="badge">3</span>
                     </a></li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- End Atribute Navigation -->
             </div>
             <!-- Start Side Menu -->
@@ -181,7 +181,7 @@
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer-widget">
                             <h4>About Foodie</h4>
-                            <p>foodie is a Pakistani restaurant aggregator and food delivery start-up. Foodie provides information, menus as well as food delivery options from partner restaurants in select cities.Now get more than just your favourite food at your doorstep. Introducing Foodie – a simple way for you to get your food delivered at yout door steps in minutes ...
+                            <p>Foodie is a Pakistani restaurant aggregator and food delivery start-up. Foodie provides information, menus as well as food delivery options from partner restaurants in select cities.Now get more than just your favourite food at your doorstep. Introducing Foodie – a simple way for you to get your food delivered at yout door steps in minutes ...
                             </p>
                         </div>
                     </div>

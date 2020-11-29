@@ -34,7 +34,7 @@
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Welcome To <br>Foodie</strong></h1>
                             <h2 style="color: white">Gives spicy, juicy, crunchy and tendering experience to tongue</h2>
-                            <p><a class="btn hvr-hover" href="#">Shop Now</a></p>
+                            <p><a class="btn hvr-hover" href="usercategory">Shop Now</a></p>
                         </div>
                     </div>
                 </div>
