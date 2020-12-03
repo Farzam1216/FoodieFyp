@@ -172,18 +172,16 @@
 
             <div class="row my-5">
                     <div class="update-box d-flex">
+                      @if(DB::table('carts')->where('email', Auth::User()->email)->exists())
                         <a href="checkout"><input ml-auto btn hvr-hover value="Checkout" type="submit" ></a>
-                        <a href="usercategory"><input ml-auto btn hvr-hover value="Add More Poducts" type="submit"> </a> 
+                        @endif
+
+                        <a href="usercategory"><input ml-auto btn hvr-hover value="Add Poducts" type="submit"> </a> 
                     </div>
                 </div>
             </div>
 
-            <div class="row my-5">
-                <div class="col-lg-8 col-sm-12"></div>
-                <div class="col-lg-4 col-sm-12">
-                    
-                <div class="col-12 d-flex shopping-box"><a href="checkout" class="ml-auto btn hvr-hover">Checkout</a> </div>
-            </div>
+            
 
         </div>
     </div>

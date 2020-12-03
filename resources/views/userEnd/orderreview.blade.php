@@ -37,13 +37,7 @@
                                 </td>
                                 
                             </tr>
-                            
                            @endforeach
-                           
-                           <tr>
-                               <th colspan="4" class="text-center  "><h1><a class="text-white text-danger" href="checkout">Add Address If Not Added</a></h1></th>
-                           </tr>
-                           
                         </tbody>
                     </table>
                 </div>

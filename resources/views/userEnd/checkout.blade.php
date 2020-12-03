@@ -47,7 +47,7 @@
                     <div class="title-left">
                         <h3>Add Billing Info If Not Already Added</h3>
                     </div>
-                    <h5><a data-toggle="collapse" href="#formLogin"  role="button" aria-expanded="false" class="text-danger">Click here For Billing Address</a></h5>
+                    <h5><a data-toggle="collapse" href="#formLogin"  role="button" aria-expanded="false" class="btn hvr-hover text-white ">Click here To Add Billing Address</a></h5>
                     
                     <form method="POST" action="{{route('checkout.store')}}" class="mt-3 collapse review-form-box" id="formLogin">{{csrf_field()}}
                         <div class="form-row">
@@ -86,10 +86,10 @@
                     </div>
                     @endif
                     <div class="title-left">
-                        <h3>View OR Edit Billing Info If Already Added</h3>
+                        <h3 >View OR Edit Billing Info If Already Added</h3>
                     </div>
                     <h5>
-                        <a data-toggle="collapse" href="#formRegister" role="button" aria-expanded="false" class="text-danger">Click here to View biiling Info You Added</a></h5>
+                        <a data-toggle="collapse" href="#formRegister" role="button" aria-expanded="false" class="btn hvr-hover text-white">Click here to View biiling Info You Added</a></h5>
                         @foreach($checkout as $check)
                     <form method="POST" action="{{route('checkout.update',$check->id)}}" class="mt-3 collapse review-form-box" id="formRegister">{{csrf_field()}}
                         @method('PUT')
@@ -183,17 +183,22 @@
                                     echo $deliverycharges; ?> </div>
                                 </div>
                                 <hr class="my-1">
-                                
-                                
-                                
                                 <div class="d-flex gr-total">
                                     <h5>Grand Total</h5>
                                     <div class="ml-auto h5"> PKR {{$grand_total = $total_amount + $deliverycharges}} </div>
                                 </div>
-                                            <hr> </div>
-                                    </div>
-                                    <div class="col-12 d-flex shopping-box"> <a href="orderreview" class="ml-auto btn hvr-hover">Place Order</a>
-                               </div>
+                                <hr>
+                            </div>
+                        </div>
+                        @if(DB::table('checkouts')->where('email', Auth::User()->email)->exists() &&  DB::table('carts')->where('email', Auth::User()->email)->exists())
+                        <div class="col-12 d-flex shopping-box"> <a href="orderreview" class="ml-auto btn hvr-hover">Place Order</a>
+                            @else
+                            <div class="col-12 d-flex shopping-box"> <a href="#" class="ml-auto btn hvr-hover">Please Add Address First </a>
+                            @endif
+                            @if(DB::table('carts')->where('email' , Auth::User()->email)->doesntExist())
+                               <a href="usercategory" class="ml-auto btn hvr-hover">Please Add Products First </a>
+                            @endif
+                           </div>
                         </div>
                   </div>
             </div>

@@ -82,7 +82,10 @@
                                        <td class="text-center">
                                           RS {{$order->usertotal}}   
                                        </td>
-                                       <td class="text-center"><a class="text-danger" href="{{url('/item',$order->id)}}">Click</a></td>
+                                       <td class="text-center">
+                                        <h4><span class="label-danger label label-default">  <a class="text-white" href="{{url('/item',$order->id)}}">Click</a>
+                                         </span></h4> 
+                                       </td>
                                        <td class="text-center">
                                           {{$order->paymentmethod}}   
                                        </td>

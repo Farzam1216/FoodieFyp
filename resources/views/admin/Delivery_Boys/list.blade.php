@@ -35,10 +35,9 @@
                                  <thead>
                                     <tr class="info">
                                        <!-- <th>Photo</th> -->
-                                       <th>ID</th>
+                                       <th>User_ID</th>
                                        <th>Name</th>
                                        <th>Email</th>
-                                       <th>Password</th>
                                        <th>Role</th>
                                     </tr>
                                  </thead>
@@ -53,9 +52,6 @@
                                        </td>
                                        <td>
                                           {{$user->email}}
-                                       </td>
-                                       <td>
-                                          {{$user->password}}
                                        </td>
                                        <td>
                                           {{$user->role}}

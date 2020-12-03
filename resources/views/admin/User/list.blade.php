@@ -62,8 +62,10 @@
                                        <td class="text-center">
                                           {{$user->password}}
                                        </td>
-                                       <td class="text-center">
+                                       <td class="text-center text-custom">
+                                          <span class="label-custom label label-default">
                                           {{$user->role}}
+                                          </span>
                                        </td>
                                        
                                        <td>
