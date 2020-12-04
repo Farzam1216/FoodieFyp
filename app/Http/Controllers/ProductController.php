@@ -31,8 +31,8 @@ class ProductController extends Controller
     public function list()
     {
         $product =Product::all();
-        $category =Category::all();
-        return view('admin.Products.list', compact('category','product'));
+        $categories =Category::all();
+        return view('admin.Products.list', compact('categories','product'));
 
     }
     
@@ -135,7 +135,7 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->price = $request->input('price');
         $product->quantity = $request->input('quantity');
-        $product->foreignproductid = $request->input('fid');
+        $product->foreignproductid = $request->input('foregin');
 
          if ($request->hasfile('image')) {
                 # code...

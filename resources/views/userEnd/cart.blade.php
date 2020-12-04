@@ -70,8 +70,8 @@
                                     </td>
                                     <td class="name-pr text-center">
                                         
-                                        <i class="fas fa-plus"></i><button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="{{'#edit'.$cart->id}}">{{$cart->quantity}}</i>
-                                        </button><i class="fas fa-minus">
+                                       <button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="{{'#edit'.$cart->id}}"> <i class="fas fa-plus">{{$cart->quantity}}</i><i class="fas fa-minus"></i>
+                                        </button>
 
 <!-- edit Modal -->
  <div class="modal fade" id="{{'edit'.$cart->id}}" tabindex="-1" role="dialog" aria-hidden="true">

@@ -191,7 +191,7 @@
                             </div>
                         </div>
                         @if(DB::table('checkouts')->where('email', Auth::User()->email)->exists() &&  DB::table('carts')->where('email', Auth::User()->email)->exists())
-                        <div class="col-12 d-flex shopping-box"> <a href="orderreview" class="ml-auto btn hvr-hover">Place Order</a>
+                        <div class="col-12 d-flex shopping-box"> <a href="orderreview" class="ml-auto btn hvr-hover">Order Review</a>
                             @else
                             <div class="col-12 d-flex shopping-box"> <a href="#" class="ml-auto btn hvr-hover">Please Add Address First </a>
                             @endif

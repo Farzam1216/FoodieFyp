@@ -49,7 +49,7 @@
                                        <th class="text-center">Description</th>
                                        <th class="text-center">Price</th>
                                        <th class="text-center">Quantity</th>
-                                       <th class="text-center">Foregin_ID</th>
+                                       <th class="text-center">Category_ID</th>
                                        <!-- <th>Category Name</th> -->
                                        <th class="text-center">Action</th>
                                     </tr>
@@ -88,7 +88,7 @@
                                     <fieldset>
                                        <!-- Text input-->
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">Category Name:</label>
+                                          <label class="control-label">Product Name:</label>
                                           <input type="text" placeholder="Customer Name" name="name" value="{{$products->name}}" class="form-control">
                                        </div>
                                         <div class="col-md-4 form-group">
@@ -104,8 +104,12 @@
                                           <input type="text" placeholder="Customer Name" name="quantity" value="{{$products->quantity}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
-                                          <label class="control-label">ForeginId:</label>
-                                          <input type="text" placeholder="Customer Name" name="fid" value="{{$products->foreignproductid}}" class="form-control">
+                                          <label class="control-label">Category Name:</label>
+                                         <select class="form-control" name="foregin">
+                                           @foreach($categories as $category)
+                                               <option value="{{ $category->id}}"  {{ $category->id == $products->foreignproductid ? 'selected' : '' }}>{{ $category->name }}</option>
+                                           @endforeach
+                                           </select>
                                        </div>
                                        <div class="col-md-6  form-group">
                                           <label class="control-label">Image </label>

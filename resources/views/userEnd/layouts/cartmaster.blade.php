@@ -74,7 +74,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{url('cart')}}">Cart</a></li>
                                 <li><a href="{{url('checkout')}}">Checkout</a></li>
-                                <li><a href="{{url('my-account')}}">My Account</a></li>
+                                <li><a href="{{url('myOrder')}}">My Orders</a></li>
                                 
                             </ul>
                         </li>

@@ -74,7 +74,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="cart">Cart</a></li>
                                 <li><a href="checkout">Checkout</a></li>
-                                <li><a href="my-account">My Account</a></li>
+                                <li><a href="myOrder">My Orders</a></li>
                                 
                             </ul>
                         </li>

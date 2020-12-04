@@ -22,6 +22,8 @@ Route::match(['get','post'],'/userindex','App\Http\Controllers\userViewControlle
 Route::match(['get','post'],'/master','App\Http\Controllers\userViewController@master');
 Route::match(['get','post'],'about','App\Http\Controllers\userViewController@about');
 Route::match(['get','post'],'usercategory','App\Http\Controllers\userViewController@categories');
+Route::match(['get','post'],'/myOrder','App\Http\Controllers\userViewController@myOrder');
+Route::match(['get','post'],'/myOrderItem/{id}','App\Http\Controllers\userViewController@myOrderItem');
 Route::get('/categories/{category_id}','App\Http\Controllers\userViewController@newcategories');
 Route::match(['get','post'],'categoryDetail/{id}','App\Http\Controllers\userViewController@categoryDetails');
 Route::match(['get','post'],'productDetails/{id}','App\Http\Controllers\userViewController@productDetails');

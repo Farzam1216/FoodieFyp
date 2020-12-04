@@ -14,6 +14,10 @@ use App\Models\Cart;
 
 use App\Models\Checkout;
 
+use App\Models\Order;
+
+use App\Models\OrderItem;
+
 use Auth;
 
 use DB;
@@ -79,6 +83,13 @@ class userViewController extends Controller
         return view('userEnd.categories',compact('categories','products'));
     }
 
+    public function newcategories($category_id)
+    {
+        $categories=Category::all();
+        $products = Product::where(['foreignproductid'=>$category_id])->get();
+        return view('userEnd.categories',compact('categories','products'));
+    }
+
     public function productDetails($id)
     {
         $products = Product::where(['id'=>$id])->get();
@@ -96,15 +107,6 @@ class userViewController extends Controller
         $resturant = Resturant::where(['id'=>$id])->get();
         return view('userEnd.resturantDetail',compact('resturant'));
     }
-
-     public function newcategories($category_id)
-    {
-        $categories=Category::all();
-        $products = Product::where(['foreignproductid'=>$category_id])->get();
-        return view('userEnd.categories',compact('categories','products'));
-    }
-    
-    
 
     public function checkout()
     {   
@@ -245,6 +247,22 @@ class userViewController extends Controller
         return view('userEnd.wishlist');
 
     }
+
+
+    public function myOrder()
+    {
+        $Order=Order::where(['username'=>Auth::User()->name])->get();
+        
+        return view('userEnd.myOrder',compact('Order'));
+    }
+
+    public function myOrderItem($id)
+    {
+        $ordersitem=OrderItem::where(['orderid'=>$id])->get();
+        
+        return view('userEnd.myOrderItem',compact('ordersitem'));
+    }
+   
 
     public function index()
     {
