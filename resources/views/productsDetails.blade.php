@@ -52,13 +52,17 @@
 
                                 <div class="price-box-bar">
                                     <div class="cart-and-bay-btn"> 
-                                    @if(DB::table('carts')->where(['email' => Auth::User()->email , 'name' => $products->name])->exists()  
-                                     ) 
-                                        <h3>You have Already added this product in Cart <a class="hvr-hover" href="{{url('/cart')}}">Click To View</a> </h3>
-                                        
-                                  @else
+                                        @if(Auth::check())    
+                                        @if(DB::table('carts')->where(['email' => Auth::User()->email , 'name' => $products->name])->exists()  
+                                         ) 
+                                            <h3>You have Already added this product in Cart <a class="hvr-hover" href="{{url('/cart')}}">Click To View</a> </h3>
+                                            
+                                        @else
+                                            <button class="btn hvr-hover" data-fancybox-close="" type="submit" style="color:white;">Add to cart</button>
+                                        @endif
+                                         @else 
                                         <button class="btn hvr-hover" data-fancybox-close="" type="submit" style="color:white;">Add to cart</button>
-                                  @endif  
+                                         @endif 
                                     </div>
                                     
                                 </div>
