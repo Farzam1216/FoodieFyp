@@ -93,20 +93,25 @@
                                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                             <div class="products-single fix">
                                                 <div class="box-img-hover">
-                                                    <div class="type-lb">
+                                                    <!-- <div class="type-lb">
                                                         <p class="sale">Sale</p>
-                                                    </div>
+                                                    </div> -->
                                                 <img src="{{asset('/Uploadimages/Products/'.$product->image)}}" class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
-                                                        
+                                                      @if(DB::table('carts')->where(['email' => Auth::User()->email , 'name' => $product->name])->doesntExist())   
                                                         <form action="{{route('cart.store')}}" method="POST">{{csrf_field()}}
                                                          <input type="hidden" name="name" value="{{$product->name}}">
                                                          <input type="hidden" name="quantity" value="1">
                                                          <input type="hidden" name="price" value="{{$product->price}}"> 
+                                                          
                                                         <input class="cart  btn btn-danger" type="submit" name="" value="Add To Cart">
+                                                            @else
+                                                             <h3><a class="btn hvr-hover text-white" href="{{url('/cart')}}"> Already in the Cart Click To View</a> </h3>
+                                                           @endif 
                                                       
                                                    </form>
                                                      <a class="cart" href="{{url('/productDetails/'.$product->id)}}">Detail Page</a>
+                                                     
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
