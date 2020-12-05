@@ -67,7 +67,7 @@
                             <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" >
                                 @foreach($categories as $cat)
                                 <div class=" ">
-                                  <h1><a href="{{url('/categories/'.$cat->id)}}" class="list-group-item  list-group-item-action">{{$cat->name}}</h1> 
+                                  <h1><a class=" btn-lg btn " href="{{url('/categories/'.$cat->id)}}" class="list-group-item  list-group-item-action">{{$cat->name}}</h1> 
 								</a>
                                     <div class="collapse" id="{{$cat->id}}" data-parent="#list-group-men">
                                         <div class="list-group">
@@ -98,6 +98,7 @@
                                                     </div> -->
                                                 <img src="{{asset('/Uploadimages/Products/'.$product->image)}}" class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
+                                                    @if(Auth::check())  
                                                       @if(DB::table('carts')->where(['email' => Auth::User()->email , 'name' => $product->name])->doesntExist())   
                                                         <form action="{{route('cart.store')}}" method="POST">{{csrf_field()}}
                                                          <input type="hidden" name="name" value="{{$product->name}}">
@@ -108,7 +109,9 @@
                                                             @else
                                                              <h3><a class="btn hvr-hover text-white" href="{{url('/cart')}}"> Already in the Cart Click To View</a> </h3>
                                                            @endif 
-                                                      
+                                                            @else
+                                                           <a href="{{url('/cart')}}"><input class="cart  btn btn-danger" type="submit" name="" value="Add To Cart"></a> 
+                                                      @endif
                                                    </form>
                                                      <a class="cart" href="{{url('/productDetails/'.$product->id)}}">Detail Page</a>
                                                      

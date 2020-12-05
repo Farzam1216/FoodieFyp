@@ -1,5 +1,4 @@
 @extends('userEnd.layouts.master')
-
 @section('content')
 <br><br><br>
 <div class="container">
