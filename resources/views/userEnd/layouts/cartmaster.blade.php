@@ -74,7 +74,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{url('cart')}}">Cart</a></li>
                                 <li><a href="{{url('checkout')}}">Checkout</a></li>
-                                <li><a href="{{url('myOrder')}}">My Orders</a></li>
+                                
                                 
                             </ul>
                         </li>
@@ -100,7 +100,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if( Auth::user()->role == 'Admin' || Auth::user()->role == 'Boys' )
                                     <a class="dropdown-item" href="{{url('dashboard')}}">Dashboard</a>
+                                    @endif
+                                    <a class="dropdown-item" href="{{url('myOrder')}}">My Orders</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

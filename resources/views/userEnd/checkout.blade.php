@@ -50,8 +50,9 @@
                     <h5><a data-toggle="collapse" href="#formLogin"  role="button" aria-expanded="false" class="btn hvr-hover text-white ">Click here To Add Billing Address</a></h5>
                     
                     <form method="POST" action="{{route('checkout.store')}}" class="mt-3 collapse review-form-box" id="formLogin">{{csrf_field()}}
+                          @if(DB::table('checkouts')->where('email', Auth::User()->email)->doesntExist())   
                         <div class="form-row">
-                            
+                        
                             
                             <div class="mb-3">
                                 <label for="address">Address *</label>
@@ -77,7 +78,13 @@
                                     <div class="invalid-feedback"> Please select a valid country. </div>
                                 </div>
                         </div>
-                    <button type="submit" class="btn hvr-hover">ADD Billing Info</button></form>
+                       
+                        <button type="submit" class="btn hvr-hover">ADD Billing Info</button>
+                        @else
+                        <h3 class=" text-primary">You have already enterd your Address If you want to change go to right and update Address </h3>
+                        @endif
+                    </form>
+
                 </div>
                 <div class="col-sm-6 col-lg-6 mb-3">
                     @if (session('ustatus'))
@@ -89,12 +96,16 @@
                         <h3 >View OR Edit Billing Info If Already Added</h3>
                     </div>
                     <h5>
-                        <a data-toggle="collapse" href="#formRegister" role="button" aria-expanded="false" class="btn hvr-hover text-white">Click here to View biiling Info You Added</a></h5>
+                        <a data-toggle="collapse" href="#formRegister" role="button" aria-expanded="false" class="btn hvr-hover text-white">Click here to View or Update biiling Info You Added</a></h5>
+                         @if(DB::table('checkouts')->where('email', Auth::User()->email)->doesntExist())
+                         <h3 class="text-primary mt-3 collapse review-form-box" id="formRegister">Please Enter Address First</h3>
+                         @endif
+
                         @foreach($checkout as $check)
                     <form method="POST" action="{{route('checkout.update',$check->id)}}" class="mt-3 collapse review-form-box" id="formRegister">{{csrf_field()}}
                         @method('PUT')
                         <div class="form-row">
-                            
+                             @if(DB::table('checkouts')->where('email', Auth::User()->email)->exists())
                             <div class="form-group col-md-6">
                                 <label for="InputName" class="mb-0">Name</label>
                                 <input value="{{$check->name}}" disabled  class="form-control" id="InputName" placeholder="First Name"> </div>
@@ -120,6 +131,7 @@
                                 
                         </div>
                         <button type="submit" class="btn hvr-hover">Update Billing Info</button>
+                        @endif
                     </form>@endforeach
                 </div>
             </div>
@@ -193,11 +205,16 @@
                         @if(DB::table('checkouts')->where('email', Auth::User()->email)->exists() &&  DB::table('carts')->where('email', Auth::User()->email)->exists())
                         <div class="col-12 d-flex shopping-box"> <a href="orderreview" class="ml-auto btn hvr-hover">Order Review</a>
                             @else
-                            <div class="col-12 d-flex shopping-box"> <a href="#" class="ml-auto btn hvr-hover">Please Add Address First </a>
-                            @endif
-                            @if(DB::table('carts')->where('email' , Auth::User()->email)->doesntExist())
+                             
+                            <div class="col-12 d-flex shopping-box">
+                                @if(DB::table('checkouts')->where('email' , Auth::User()->email)->doesntExist())
+                                <a href="#" class="ml-auto btn hvr-hover">Please Add Address First </a>
+                                @endif
+                                @if(DB::table('carts')->where('email' , Auth::User()->email)->doesntExist())
                                <a href="usercategory" class="ml-auto btn hvr-hover">Please Add Products First </a>
                             @endif
+                            @endif
+                            
                            </div>
                         </div>
                   </div>
