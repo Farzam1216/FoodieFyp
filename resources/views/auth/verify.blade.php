@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('userEnd.layouts.cartmaster')
 
 @section('content')
+<div id='app'><br><br><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <h1><div class="card-header bg-danger text-white">{{ __('Verify Your Email Address') }}</div></h1>
 
                 <div class="card-body">
                     @if (session('resent'))
@@ -18,11 +19,12 @@
                     {{ __('If you did not receive the email') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline bg-primary text-white">{{ __('click here to request another') }}</button>.
                     </form>
                 </div>
             </div>
         </div>
     </div>
+</div><br><br><br>
 </div>
 @endsection

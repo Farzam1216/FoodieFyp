@@ -29,8 +29,12 @@ Route::match(['get','post'],'categoryDetail/{id}','App\Http\Controllers\userView
 Route::match(['get','post'],'productDetails/{id}','App\Http\Controllers\userViewController@productDetails');
 Route::match(['get','post'],'resturantDetail/{id}','App\Http\Controllers\userViewController@resturantDetails');
 
-// 
+// Chat bot routes
 
+Route::get('/Botman', function () {
+    return view('welcome');
+});
+Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');	
 // Middleware for User 
 Route::group(['middleware' => 'auth'], function () {
 //Checkout Routes
@@ -42,7 +46,7 @@ Route::resource('/checkout', 'App\Http\Controllers\CheckoutController');
 Route::resource('/cart', 'App\Http\Controllers\CartController');
 //End cart
 //Order Controller
-Route::resource('/orderreview', 'App\Http\Controllers\OrderController');
+Route::resource('/orderreview', 'App\Http\Controllers\OrderController')->middleware('verified');
 // end order
 //Order Review
 
@@ -71,7 +75,7 @@ Route::match(['get','post'],'traditional','App\Http\Controllers\userViewControll
 
 Route::match(['get','post'],'wishlist','App\Http\Controllers\userViewController@wishlist');
 // End User View Routes
-Auth::routes();
+Auth::routes(['verify'=> true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -79,7 +83,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => 'admin'], function () {
 
 // Route::get('/', function(){return view('admin.Dashboard.index');});
-Route::get('/dashboard', function(){return view('admin.Dashboard.index');});
+Route::get('/dashboard', function(){return view('admin.Dashboard.index');})->middleware('verified');
 
 
 // Categories

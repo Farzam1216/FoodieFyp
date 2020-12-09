@@ -103,7 +103,9 @@
                                     @if( Auth::user()->role == 'Admin' || Auth::user()->role == 'Boys' )
                                     <a class="dropdown-item" href="{{url('dashboard')}}">Dashboard</a>
                                     @endif
+                                    @if(DB::table('orders')->where('useremail', Auth::User()->email)->exists())
                                     <a class="dropdown-item" href="{{url('myOrder')}}">My Orders</a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

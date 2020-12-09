@@ -75,7 +75,7 @@
                         <td class="text-center">{{$Order->useraddress}}</td>
                         <td class="text-center">{{$Order->userzip}}</td>
                         <td class="text-center">{{$Order->orderStatus}}</td>
-                        <td class=" text-center "><a class="btn btn btn-lg text-white text-center hvr-hover" href="{{url('/myOrderItem',$Order->id)}}">Click</a></td>
+                        <td class=" text-center "><a class="btn btn btn-sm text-white text-center hvr-hover" href="{{url('/myOrderItem',$Order->id)}}">Click</a></td>
                     </tr>
                     @endforeach
                 </tbody>
