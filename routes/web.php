@@ -53,6 +53,8 @@ Route::resource('/orderreview', 'App\Http\Controllers\OrderController')->middlew
 //End Order  Revew
 //Thanks Pge
 Route::match(['get','post'],'thanks','App\Http\Controllers\userViewController@thanks');
+Route::match(['get','post'],'stripe','App\Http\Controllers\userViewController@stripe');
+Route::match(['get','post'],'stripeStore','App\Http\Controllers\userViewController@stripeStore');
 //End thanks page
  });
 // End User Middleware

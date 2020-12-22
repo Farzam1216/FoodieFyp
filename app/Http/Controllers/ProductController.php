@@ -70,7 +70,7 @@ class ProductController extends Controller
         $product->name= $request->input ('name');
         $product->description= $request->input ('description');
         $product->price= $request->input ('price');
-        $product->description= $request->input ('description');
+        $product->units= $request->input ('units');
         $product->quantity= $request->input ('quantity');
          if ($request->hasfile('image')) {
                 # code...
@@ -136,7 +136,7 @@ class ProductController extends Controller
         $product->price = $request->input('price');
         $product->quantity = $request->input('quantity');
         $product->foreignproductid = $request->input('foregin');
-
+        $product->units = $request->input('units');
          if ($request->hasfile('image')) {
                 # code...
                 echo $img_tmp=$request->file('image');

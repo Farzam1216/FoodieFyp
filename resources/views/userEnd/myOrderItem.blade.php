@@ -58,15 +58,17 @@
           <th>#</th>
           <th>Item Name</th>
           <th>Item Price</th>
-          <th>Quantity</th>
+          <th>Item Quantity</th>
           <th>Total Price</th>
-          <th>Delivery Charges</th>
           <th>Created At</th>
           </tr>
         </thead>
                     <tbody>
-          <?php $total_amount = 0; ?>
-          <?php $i=0; ?>
+                      <?php $delivery=150; ?>
+          <?php $total_amount = 0;
+                $total=0;
+           ?>
+          <?php $i=0; ?> 
           @foreach($ordersitem as $ordersitem)
           <?php $i++; ?>
           <tr  >
@@ -75,7 +77,7 @@
                           {{$ordersitem->name}}
                        </td>
                        <td class="text-center">
-                          {{$ordersitem->price}}
+                          RS {{$ordersitem->price}}
                        </td>
                        <td class="text-center">
                           {{$ordersitem->quantity}}
@@ -83,25 +85,38 @@
                        <td class="text-center">
                           RS {{$ordersitem->price * $ordersitem->quantity}}   
                        </td>
-                       <td class="text-center">Rs 150</td>
                        <td class="text-center">
                           {{$ordersitem->created_at}}   
                        </td>
           </tr>
-          <?php 
+                    <?php 
                       $deliverycharges = 150;
                       $total_amount = $total_amount + ($ordersitem->price*$ordersitem->quantity); 
                     ?>
+                     <?php 
+                      
+                      $total = $total + ($ordersitem->price*$ordersitem->quantity); 
+                    ?>
           @endforeach
           <tr>
-                      <th class="text-center bg-danger text-white" colspan="5" >Grand_Total</th>
-                      <th class="text-center bg-danger text-white" colspan="4">
+            <th  class="text-center  text-danger" colspan="4"><h3 class=" text-danger">Total</h3></th>
+           <th class="text-center  text-danger" colspan="2"> <h3 class=" text-danger">RS {{$total}}</h3></th>
+          </tr>
+          </tr>
+          <tr>
+            <th  class="text-center  text-white" colspan="4"><h3 class=" text-danger">Delivery Charges</h3></th>
+            <th class="text-center text-white" colspan="2"><h3 class=" text-danger">RS 150</h3></th>
+          </tr>
+          <tr>
+                     
+                      <th class="text-center bg-danger text-white" colspan="4" > <h3 class="text-white">Grand_Total</h3></th>
+                      <th class="text-center bg-danger text-white" colspan="2">
                         <?php 
                             $deliverycharges = 150;
                             $total_amount = $total_amount  + $deliverycharges; 
                           ?>
-                         RS  {{$total_amount}}</th>
-                    </tr>
+                        <h3 class="text-white"> RS  {{$total_amount}}</h3></th>
+          </tr>
         </tbody>
                 </table>
 

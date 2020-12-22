@@ -1,5 +1,4 @@
 @extends('userEnd.layouts.cartmaster')
-
 @section('content')
 <div id='app'><br><br><br>
 <div class="container">

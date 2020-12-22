@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('price');
             $table->string('quantity');
+            $table->string('units');
             $table->Strng('image');
             $table->timestamps();
             $table->foreignId('foreignproductid')->constrained('categories');

@@ -62,6 +62,7 @@
                             <th>Address</th>
                             <th>Mobile</th>
                             <th>Order Status</th>
+                            <th>Payment Method</th>
                             <th>Order Items</th>
                             </tr>
                         </thead>
@@ -75,6 +76,7 @@
                         <td class="text-center">{{$Order->useraddress}}</td>
                         <td class="text-center">{{$Order->userzip}}</td>
                         <td class="text-center">{{$Order->orderStatus}}</td>
+                        <td class="text-center">{{$Order->paymentmethod}}</td>
                         <td class=" text-center "><a class="btn btn btn-sm text-white text-center hvr-hover" href="{{url('/myOrderItem',$Order->id)}}">Click</a></td>
                     </tr>
                     @endforeach

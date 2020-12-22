@@ -14,7 +14,7 @@
                      <div class="panel panel-bd lobidrag">
                         <div class="panel-heading">
                            <div class="btn-group" id="buttonlist"> 
-                              <a class="btn btn-add " href="listCategories"> 
+                              <a class="btn btn-add " href="listProducts"> 
                               <i class="fa fa-list"></i>  Product List </a>  
                            </div>
                         </div>
@@ -44,6 +44,17 @@
                               <div class="form-group">
                                  <label>Quantity</label>
                                  <input type="text" class="form-control" placeholder="Enter Product Quantity" name="quantity"  required>
+                              </div>
+                              <div class="form-group">
+                                 <label>Measuring_Unit</label>
+                                 <select name="units" class="form-control">
+                                    <option value="Per_KG">Per Kilogram</option>
+                                    <option value="Half_KG">Half Kilogram</option>
+                                    <option value="Per_Plate">Per Plate</option>
+                                    <option value="Half_Plate">Half Plate</option>
+                                    <option value="Half_Plate">Per Glass</option>
+                                    <option value="Per_Piece">Per Piece</option>
+                                 </select>
                               </div>
                                <div class="form-group">
                                  <label>Image</label>

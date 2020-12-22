@@ -157,8 +157,14 @@
                                           <label class="control-label">Order Status:</label>
                                           <input type="text" placeholder="Order Status" name="orderStatus" value="{{$order->orderStatus}}" class="form-control">
                                        </div>
-                                        
-                                        
+                                       <input type="hidden" value="{{$order->username}}" name="username">
+                                       <input type="hidden" value="{{$order->useremail}}" name="useremail">
+                                       <input type="hidden" value="{{$order->useraddress}}" name="useraddress">
+                                       <input type="hidden" value="{{$order->usercountry}}" name="usercountry">
+                                       <input type="hidden" value="{{$order->usercity}}" name="usercity">
+                                       <input type="hidden" value="{{$order->userzip}}" name="userzip">
+                                       <input type="hidden" value="{{$order->usertotal}}" name="usertotal">
+                                       <input type="hidden" value="{{$order->paymentmethod}}" name="paymentmethod">
                                        <div class="col-md-12 form-group user-form-group">
                                           <div class="pull-right">
                                              <button type="button"  data-dismiss="modal" class="btn btn-danger btn-sm">Cancel</button>

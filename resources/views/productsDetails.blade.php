@@ -37,7 +37,7 @@
                     <input type="hidden" name="price" value="{{$products->price}}">  
                 
                     <h2>Product Name : {{$products->name}}</h2>
-                    <h5 >Product Price: Rs {{$products->price}}</h5>
+                    <h5 >Product Price: Rs {{$products->price}} ({{$products->units}})</h5>
                         <p>
                             <h4>Short Description:</h4>
                             <h4>{{$products->description}} </h4>

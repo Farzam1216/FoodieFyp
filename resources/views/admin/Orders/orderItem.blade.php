@@ -53,7 +53,9 @@
                                        <th class="text-center">Total_Price</th>
                                        <!-- <th class="text-center">Grand_Total</th> -->
                                        <th class="text-center">Created_at</th>
+                                       @if(Auth::user()->role == 'Admin')
                                        <th class="text-center">Action</th>
+                                       @endif
                                     </tr>
                                  </thead>
                                  <tbody><?php $total_amount = 0; ?>
@@ -92,10 +94,12 @@
                                        <td class="text-center">
                                           {{$orderitem->created_at}}   
                                        </td>
+                                       @if(Auth::user()->role == 'Admin')
                                        <td class="text-center">
                                           <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target="{{'#edit'.$orderitem->id}}"><i class="fa fa-pencil"></i></button>
                                           <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="{{'#delete'.$orderitem->id}}"><i class="fa fa-trash-o"></i> </button>
                                        </td>
+                                       @endif
                                       
 <!-- edit Modal -->
  <div class="modal fade" id="{{'edit'.$orderitem->id}}" tabindex="-1" role="dialog" aria-hidden="true">

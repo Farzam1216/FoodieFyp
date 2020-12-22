@@ -118,11 +118,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
-                                                    <h4 class="text-center">
-                                                        {{$product->name}}
-                                                    </h4>
                                                     <h5 class="text-center">
-                                                        RS {{$product->price}} 
+                                                        {{$product->name}}
+                                                    </h5>
+                                                    <h5 class="text-center">
+                                                        RS {{$product->price}} ({{$product->units}})
                                                     </h5>
                                                 </div>
                                             </div>

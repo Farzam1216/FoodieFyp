@@ -76,6 +76,7 @@ class OrderController extends Controller
         $orders->usercity = $request->input ('usercity');
         $orders->userzip = $request->input ('userzip');
         $orders->usertotal = $request->input ('usertotal');
+        $orders->paymentmethod = $request->input ('payment_method'); 
         $orders->save();
         $cartitems= DB::table('carts')->where(['email'=>$orders->useremail])->get();
        
@@ -90,12 +91,17 @@ class OrderController extends Controller
         $ordersitems->quantity=$items->quantity;
         $ordersitems->totalPrice=$items->price * $items->quantity;
         $ordersitems->grandTotal = $request->input ('usertotal');        
+        
         $ordersitems->save();
         }
         DB::table('checkouts')->where('email' , $orders->useremail)->delete();
         DB::table('carts')->where('email' , $orders->useremail)->delete();
+        if($orders->paymentmethod == 'cod'){
         Session::flash('statuscode' , 'success');
         return redirect('/thanks')->with('status' ,' Order Placed Successfully');
+        }
+        else
+        return redirect('/stripe');
     }
 
     /**

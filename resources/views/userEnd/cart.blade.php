@@ -79,19 +79,19 @@
 <div class="modal-dialog">
    <div class="modal-content">
       <div class="modal-header modal-header-primary">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3>Update Quantity</h3>
+         
+          <h2>Update Quantity</h2> <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       </div>
     <div class="modal-body">
          <div class="row">
-      \               <div class="col-md-12">
+                    <div class="col-md-12">
                                  <form action="{{ route('cart.update',$cart->id) }}" method="POST" class="form-horizontal">{{ csrf_field() }}
                                     @method('PUT')
                                     <fieldset>
                                        <!-- Text input-->
                                       <div class="col-md-4 input-group">
                                           
-                                          <input type="number" value="{{$cart->quantity}}" placeholder="Quantity" name="quantity"  class="form-control text-center">
+                                          <input type="number" value="{{$cart->quantity}}" placeholder="Quantity" name="quantity" max="10" min="1" class="form-control text-center">
 
                                           <div class="pull-right">
                                             <br><br>
@@ -127,7 +127,7 @@
                                         <button type="button" class="btn btn-danger btn-sm " data-toggle="modal" data-target="{{'#delete'.$cart->id}}"><i class="fa fa-trash-o"></i><i class="fas fa-times"></i> </button>
                                     
                                     <!-- Start Delete Modal -->
- <div class="modal fade" id="{{'delete'.$cart->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+             <div class="modal fade" id="{{'delete'.$cart->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog">
                      <div class="modal-content">
                         <div class="modal-header modal-header-primary">

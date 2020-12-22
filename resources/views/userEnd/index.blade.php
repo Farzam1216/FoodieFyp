@@ -1,5 +1,10 @@
 @extends('userEnd.layouts.master')
 @section('content')
+@if (session('status'))
+                     <div class="alert alert-success" role="alert">
+                     {{ session('status')}}
+                   </div>
+                   @endif
     <!-- Start Top Search -->
     <div class="top-search">
         <div class="container">
@@ -116,7 +121,7 @@
                                 </div>
                                 <div class="why-text">
                                     <h5 class="text-center">{{$products->name}}</h5>
-                                    <h5 class="text-center">PKR {{$products->price}}</h5>
+                                    <h5 class="text-center">PKR {{$products->price}} ({{$products->units}})</h5>
                                 </div>
                             </div>
                         </div>

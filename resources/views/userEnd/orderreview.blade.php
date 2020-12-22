@@ -47,19 +47,23 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                
+                                <th class="text-center">#</th>
                                 <th class="text-center">Product Name</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Quantity</th>
                                 <th class="text-center">Total</th>
-                               
                             </tr>
                         </thead>
                         <tbody>
                             <?php $total_amount = 0; ?>
+                            <?php 
+                            $id=0;
+
+                             ?>
                             @foreach($cart as $cart)
                             <tr>
-                                
+                             <?php $id++; ?>
+                                <th class="text-center">{{$id}}</th>   
                                 <td class="name-pr text-center">
 									{{$cart->name}}
                                 </td>
@@ -131,10 +135,13 @@
             </div>
             <div class="d-block my-3">
                 <div class="custom-control custom-radio">
-                    <input id="credit"  name="payment_method" value="cod"  type="radio" class="custom-control-input cod">
-                    <label class="custom-control-label" select for="credit">Cash On Delivery</label>
+                    <input id="credit" required  name="payment_method" value="cod"  type="radio" class="custom-control-input cod">
+                    <label class="custom-control-label" select for="credit" >Cash On Delivery</label>
                 </div>
-                
+                <div class="custom-control custom-radio">
+                    <input id="debit" name="payment_method" value="paypal" type="radio" class="custom-control-input stripe" >
+                    <label class="custom-control-label" for="debit">Stripe / Paypal</label>
+                </div>
                 <div class="col-12 d-flex shopping-box">
                     <button type="submit" class="ml-auto btn hvr-hover text-white"  >Place Order </button> 
                 </div>

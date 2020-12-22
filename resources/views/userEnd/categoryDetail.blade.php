@@ -36,6 +36,7 @@
                         <h2 class="text-center"> </h2>
                         <h2 class="text-center">Short Description: </h2>
                         <h3 class="text-center">{{$categories->description}}</h3>
+                        <h3 class="text-center"><a class="text-white hvr-hover" href="{{url('categories/'.$categories->id)}}">Click Here To See {{$categories->name}} Products </a></h3>
                     </div>
                 </form>
                 </div>                

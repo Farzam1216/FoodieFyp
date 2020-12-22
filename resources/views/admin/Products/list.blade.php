@@ -15,7 +15,7 @@
                      {{ session('status')}}
                    </div>
                    @endif
-                  <h1>Add Products</h1>
+                  
                </div>
             <!-- Main content -->
             <section class="content">
@@ -49,6 +49,7 @@
                                        <th class="text-center">Description</th>
                                        <th class="text-center">Price</th>
                                        <th class="text-center">Quantity</th>
+                                       <th class="text-center">Units</th>
                                        <th class="text-center">Category_ID</th>
                                        <!-- <th>Category Name</th> -->
                                        <th class="text-center">Action</th>
@@ -63,8 +64,9 @@
                                        </td>                                       
                                        <td class="text-center">{{$products->name}}</td>
                                        <td class="text-center">{{$products->description}}</td>                                     
-                                       <td class="text-center">{{$products->price}}</td>
+                                       <td class="text-center">PKR {{$products->price}}</td>
                                        <td class="text-center">{{$products->quantity}}</td>
+                                       <td class="text-center">{{$products->units}}</td>
                                        <!--  -->
                                        <td class="text-center">{{$products->foreignproductid}}</td>
                                        <td class="text-center">
@@ -104,6 +106,17 @@
                                           <input type="text" placeholder="Customer Name" name="quantity" value="{{$products->quantity}}" class="form-control">
                                        </div>
                                        <div class="col-md-4 form-group">
+                                          <label class="control-label">Units:</label>
+                                         <select class="form-control" name="units" required>
+                                               <option value="Per_KG"  {{ $products->units == 'Per_KG '? 'selected' : '' }}>Per Kilogram</option>
+                                               <option value="Half_KG"  {{ $products->units == 'Half_KG' ? 'selected' : '' }}>Half Kilogram</option>
+                                               <option value="Per_Plate"  {{ $products->units == 'Per_Plate' ? 'selected' : '' }}>Per Plate</option>
+                                               <option value="Half_Plate"  {{ $products->units == 'Half_Plate' ? 'selected' : '' }}>Half Plate</option>
+                                               <option value="Per_Glass"  {{ $products->units == 'Per_Glass' ? 'selected' : '' }}>Per Glass</option>
+                                               <option value="Per_Piece"  {{ $products->units == 'Per_Piece '? 'selected' : '' }}>Per Piece</option>
+                                           </select>
+                                       </div>
+                                       <div class="col-md-4 form-group">
                                           <label class="control-label">Category Name:</label>
                                          <select class="form-control" name="foregin">
                                            @foreach($categories as $category)
@@ -119,7 +132,7 @@
                                        </div>
                                        <div class="col-md-12 form-group user-form-group">
                                           <div class="pull-right">
-                                             <button type="button" class="btn btn-danger btn-sm">Cancel</button>
+                                             <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
                                              <button type="submit" class="btn btn-add btn-sm">Save</button>
                                           </div>
                                        </div>

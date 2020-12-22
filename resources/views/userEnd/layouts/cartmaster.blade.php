@@ -32,11 +32,24 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <style type="text/css">
+        .se-pre-con
+    {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('pics/f2.gif') center no-repeat #fff;
+    }
+    </style>
 </head>
 
 <body>
-
+    {{-- preloader --}}
+    <div class="se-pre-con"></div>
+    {{-- end preloader --}}
     <!-- Start Main Top -->
    
     <!-- End Main Top -->
@@ -106,6 +119,7 @@
                                     @if(DB::table('orders')->where('useremail', Auth::User()->email)->exists())
                                     <a class="dropdown-item" href="{{url('myOrder')}}">My Orders</a>
                                     @endif
+                                    <a class="dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg" href="">Change Password</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -166,8 +180,30 @@
         <!-- End Navigation -->
     </header>
     <!-- End Main Top -->
-
-
+    <!-- Change Password Modal -->
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> -->
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+                <h1 class="text-center">Change Password</h1>
+                <div class="container-fluid">    
+                    
+                    <form method="POST" action="{{ action('App\Http\Controllers\userViewController@store') }}">{{ csrf_field() }}
+                        <label>Old Password</label>
+                        <input type="password" name="oldpassword" required class="form-control">
+                        <label>New Password</label>    
+                        <input type="password" name="newpassword" required class="form-control">
+                        <label>Re-enter Password</label>
+                        <input type="password" name="reNewpassword" required class="form-control"><br>
+                        <input type="submit" name="" value="Save Password" class="btn btn-primary">
+                        <br>
+                    </form>
+                    
+                </div>    
+        </div>
+        </div>
+        </div>
+        <!-- End change password modal -->
     
     <!-- End All Title Box -->
 
@@ -244,6 +280,16 @@
     <script src="{{asset('front_assets/js/form-validator.min.js')}}"></script>
     <script src="{{asset('front_assets/js/contact-form-script.js')}}"></script>
     <script src="{{asset('front_assets/js/custom.js')}}"></script>
+        {{-- Preloader  --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+        $(window).load(function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+    {{-- preloader --}}
 </body>
 
 </html>

@@ -18,11 +18,17 @@ use App\Models\Order;
 
 use App\Models\OrderItem;
 
+use App\Models\User;
+
+use App\Models\stripe;
+
 use Auth;
 
 use DB;
 
 use Illuminate\Support\Facades\Session;
+
+use Illuminate\Support\Facades\Hash;
 
 class userViewController extends Controller
 {
@@ -37,6 +43,7 @@ class userViewController extends Controller
         $resturants = Resturant::all();
         $categories = Category::all();
         $products = Product::all();
+
         if(Auth::check()){
             $user_email = Auth::user()->email;
             $cart = Cart::where(['email'=>$user_email])->get();
@@ -134,34 +141,6 @@ class userViewController extends Controller
 
     }
 
-    public function fastfood()
-    {   
-         if(Auth::check()){
-            $user_email = Auth::user()->email;
-            $cart = Cart::where(['email'=>$user_email])->get();
-        }else{
-            $session_id = Session::get('session_id');
-            $cart = Cart::where(['session_id'=>$session_id])->get();
-        }
-        return view('userEnd.fastfood',compact('cart'));
-
-    }
-
-    
-
-    public function juices()
-    {   
-         if(Auth::check()){
-            $user_email = Auth::user()->email;
-            $cart = Cart::where(['email'=>$user_email])->get();
-        }else{
-            $session_id = Session::get('session_id');
-            $cart = Cart::where(['session_id'=>$session_id])->get();
-        }
-        return view('userEnd.jucies',compact('cart'));
-
-    }
-
     public function thanks()
     {   
          if(Auth::check()){
@@ -175,18 +154,21 @@ class userViewController extends Controller
 
     }
 
-    public function myaccount()
-    {   
-         if(Auth::check()){
-            $user_email = Auth::user()->email;
-            $cart = Cart::where(['email'=>$user_email])->get();
-        }else{
-            $session_id = Session::get('session_id');
-            $cart = Cart::where(['session_id'=>$session_id])->get();
-        }
-        return view('userEnd.my-account',compact('cart'));
-
+    public function stripe(){
+        $user_email = Auth::user()->email;
+        $order = Order::where(['useremail'=>$user_email])->first();
+        return view('userEnd.stripe',compact('order'));
     }
+    
+    public function stripeStore(Request $request){
+        $stripe=New stripe;
+        $stripe->total=$request->input ('total');
+        $stripe->name=Auth::User()->name;
+        $stripe->card=$request->input ('card');
+         // $stripe->store();
+        return redirect('/thanks')->with('status' ,' Order Placed Successfully');
+    }
+
 
     public function orderreview()
     {
@@ -202,19 +184,7 @@ class userViewController extends Controller
         return view('userEnd.orderreview',compact('cart','checkout'));
     }
 
-    public function service()
-    {   
 
-        return view('userEnd.service');
-
-    }
-
-    public function shopdetail()
-    {   
-        $resturants = Resturant::all();
-        return view('userEnd.shop-detail',compact('resturants'));
-
-    }
 
     public function shop()
     {   
@@ -229,24 +199,6 @@ class userViewController extends Controller
 
     }
 
-    public function traditional()
-    {   
-        $category = Category::all();
-        $cat=new Category;
-        $cart = Cart::all();
-        // $products = DB::table('products')->whereColumn('foreignproductid', 'foreignproductid')->get();
-        $products = Product::where(['foreignproductid'=>1])->get();
-        
-        return view('userEnd.traditional',compact('products','category','cart'));
-
-    }
-
-    public function wishlist()
-    {   
-
-        return view('userEnd.wishlist');
-
-    }
 
 
     public function myOrder()
@@ -267,7 +219,18 @@ class userViewController extends Controller
     public function index()
     {
         //
-
+        $resturants = Resturant::all();
+        $categories = Category::all();
+        $products = Product::all();
+        $User=User::all();
+        if(Auth::check()){
+            $user_email = Auth::user()->email;
+            $cart = Cart::where(['email'=>$user_email])->get();
+        }else{
+            $session_id = Session::get('session_id');
+            $cart = Cart::where(['session_id'=>$session_id])->get();
+        }
+        return view('userEnd.index',compact('categories','resturants','products','cart','User'));
     }
 
     /**
@@ -289,6 +252,37 @@ class userViewController extends Controller
     public function store(Request $request)
     {
         //
+        // Password update at user end  //
+
+        $name=Auth::user()->name;
+        $role=Auth::user()->role;
+        $mobile=Auth::user()->mobile;
+        $user_email = Auth::user()->email;
+        $user_password = Auth::user()->password;
+        $user=User::where(['password'=>$request->input('oldpassword')])->get();
+        $new=$request->input ('newpassword');
+        $renew=$request->input ('reNewpassword');
+        $old=$request->input('oldpassword'); 
+            # code...
+        if ($old ==  $user_password) {
+            if ( $new == $renew) {
+                # code...
+                $user=new User;
+                $user->name=$name;
+                $user->email=$user_email;
+                $user->mobile=$mobile;
+                $user->password=$request->input ('newpassword');
+                $user->update();
+                 Session::flash('statuscode', 'success');
+                return redirect('/')->with('status', 'Password Updated Successfully');
+            }
+        }
+            else
+                Session::flash('statuscode', 'success');
+                return redirect('/')->with('status', 'Credentials doesnot match');
+            
+            // $user->save();
+               
     }
 
     /**
@@ -322,7 +316,8 @@ class userViewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+
     }
 
     /**
