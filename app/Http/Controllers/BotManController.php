@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use BotMan\BotMan\BotMan;
+
 use Illuminate\Http\Request;
+  
+use BotMan\BotMan\BotMan;
+
 use BotMan\BotMan\Messages\Incoming\Answer;
 
 class BotManController extends Controller
@@ -16,12 +19,16 @@ class BotManController extends Controller
   
             if ($message == 'hi') {
                 $this->askName($botman);
-            }else{
+            }
+            elseif ($message == 'i have a complaint') {
+                # code...
+                 $this->askQuestion($botman);     
+            }
+            else{
                 $botman->reply("write 'hi' for testing...");
             }
   
         });
-  
         $botman->listen();
     }
     public function askName($botman)
@@ -31,6 +38,15 @@ class BotManController extends Controller
             $name = $answer->getText();
   
             $this->say('Nice to meet you '.$name);
+        });
+    }
+    public function askQuestion($botman)
+    {
+        $botman->ask('How may i help you?', function(Answer $answer) {
+  
+            $name = $answer->getText();
+  
+            $this->say('OK i try to resolve your issue ');
         });
     }
 }

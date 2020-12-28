@@ -30,8 +30,7 @@ Route::match(['get','post'],'productDetails/{id}','App\Http\Controllers\userView
 Route::match(['get','post'],'resturantDetail/{id}','App\Http\Controllers\userViewController@resturantDetails');
 
 // Chat bot routes
-
-Route::get('/Botman', function () {
+Route::get('/chatbot', function () {
     return view('welcome');
 });
 Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');	

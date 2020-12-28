@@ -44,6 +44,14 @@
         background: url('pics/f2.gif') center no-repeat #fff;
     }
     </style>
+    <script type="text/javascript">
+        var botmanWidget = {
+            aboutText: 'How We help You',
+            introMessage: "✋ Hi! I'm form Foodie.com"
+        };
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+    </script>
 </head>
 
 <body>
