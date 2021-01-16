@@ -253,33 +253,33 @@ class userViewController extends Controller
     {
         //
         // Password update at user end  //
-
+        $id=Auth::user()->id;
         $name=Auth::user()->name;
         $role=Auth::user()->role;
         $mobile=Auth::user()->mobile;
         $user_email = Auth::user()->email;
         $user_password = Auth::user()->password;
         $user=User::where(['password'=>$request->input('oldpassword')])->get();
-        $new=$request->input ('newpassword');
+        $new= $request->input ('newpassword');
         $renew=$request->input ('reNewpassword');
-        $old=$request->input('oldpassword'); 
+        $old= $request->input('oldpassword'); 
             # code...
-        if ($old ==  $user_password) {
+        if (Hash::check($old, $user_password)) {
             if ( $new == $renew) {
                 # code...
-                $user=new User;
+                $user=User::find($id);
                 $user->name=$name;
                 $user->email=$user_email;
                 $user->mobile=$mobile;
-                $user->password=$request->input ('newpassword');
+                $user->password=$new;
                 $user->update();
                  Session::flash('statuscode', 'success');
                 return redirect('/')->with('status', 'Password Updated Successfully');
             }
         }
             else
-                Session::flash('statuscode', 'success');
-                return redirect('/')->with('status', 'Credentials doesnot match');
+                Session::flash('statuscode', 'danger');
+                return redirect('/')->with('danger', 'Credentials doesnot match');
             
             // $user->save();
                

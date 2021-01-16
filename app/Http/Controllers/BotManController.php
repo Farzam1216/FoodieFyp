@@ -25,7 +25,7 @@ class BotManController extends Controller
                  $this->askQuestion($botman);     
             }
             else{
-                $botman->reply("write 'hi' for testing...");
+                $botman->reply("Thanks For contacting us");
             }
   
         });
@@ -33,11 +33,14 @@ class BotManController extends Controller
     }
     public function askName($botman)
     {
+        
         $botman->ask('Hello! What is your Name?', function(Answer $answer) {
   
             $name = $answer->getText();
   
             $this->say('Nice to meet you '.$name);
+
+
         });
     }
     public function askQuestion($botman)
@@ -46,7 +49,8 @@ class BotManController extends Controller
   
             $name = $answer->getText();
   
-            $this->say('OK i try to resolve your issue ');
+            $this->say('OK we try to resolve your issue ');
         });
     }
+
 }

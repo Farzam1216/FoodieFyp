@@ -74,7 +74,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                    <a class="navbar-brand" href="userindex"><img src="{{asset('front_assets/pics/logo1.png')}}" style="width: 150px " class="logo" alt=""></a>
+                    <a class="navbar-brand" href="userindex"><img src="{{asset('front_assets/pics/logo/logo3.png')}}" style="width: 150px " class="logo" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
@@ -192,20 +192,20 @@
     <!-- Change Password Modal -->
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> -->
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-dialog modal-sm">
+        <div class="modal-content"><br>
                 <h1 class="text-center">Change Password</h1>
                 <div class="container-fluid">    
                     
                     <form method="POST" action="{{ action('App\Http\Controllers\userViewController@store') }}">{{ csrf_field() }}
-                        <label>Old Password</label>
+                        <label>Current Password</label>
                         <input type="password" required name="oldpassword" class="form-control">
                         <label>New Password</label>    
                         <input type="password" required name="newpassword" class="form-control">
-                        <label>Re-enter Password</label>
+                        <label>Re-Enter New Password</label>
                         <input type="password" required name="reNewpassword" class="form-control"><br>
-                        <input type="submit" name="" value="Save Password" class="btn btn-primary">
-                        <br>
+                        <input type="submit" name="" value="Update Password" class="btn btn-primary">
+                        <br><br>
                     </form>
                     
                 </div>    

@@ -1,8 +1,13 @@
 @extends('userEnd.layouts.master')
 @section('content')
-@if (session('status'))
-                     <div class="alert alert-success" role="alert">
+                    @if (session('status'))
+                     <div class="alert alert-success text-center" role="alert">
                      {{ session('status')}}
+                   </div>
+                   @endif
+                   @if (session('danger'))
+                     <div class="alert alert-danger text-center" role="alert">
+                        <h1 class="text-primary">{{ session('danger')}}</h1>
                    </div>
                    @endif
     <!-- Start Top Search -->
