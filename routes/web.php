@@ -33,7 +33,9 @@ Route::match(['get','post'],'resturantDetail/{id}','App\Http\Controllers\userVie
 Route::get('/chatbot', function () {
     return view('welcome');
 });
-Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');	
+Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');
+// Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@run');
+// End Chatbot Controller 
 // Middleware for User 
 Route::group(['middleware' => 'auth'], function () {
 //Checkout Routes

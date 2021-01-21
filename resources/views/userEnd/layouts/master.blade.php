@@ -45,7 +45,6 @@
     }
     </style>
     <script type="text/javascript">
-        
         var botmanWidget = {
             aboutText: 'How We help You',
             introMessage: "✋ Hi! I'm form Foodie.com"
@@ -88,7 +87,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="usercategory">Products Categories</a></li>
                                 <!-- <li><a href="userproducts">Products</a></li> -->
-                                <li><a href="userdeals">Deals</a></li>
+                                {{-- <li><a href="userdeals">Deals</a></li> --}}
                                 
                             </ul>
                         </li>

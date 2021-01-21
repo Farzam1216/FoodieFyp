@@ -1,6 +1,5 @@
 @extends('userEnd.layouts.cartmaster')
 @section('content')
-
 <!-- Start All Title Box -->
 <div class="all-title-box">
     <div class="container">
@@ -81,9 +80,6 @@
             </form>
             </div>@endforeach
         </div>
-
-        
-
     </div>
 </div>
 @endsection

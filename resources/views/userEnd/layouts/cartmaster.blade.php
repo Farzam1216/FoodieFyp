@@ -85,8 +85,8 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Products</a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{url('usercategory')}}">Products Categories</a></li>
-                                <!-- <li><a href="{{url('userproducts')}}">Products</a></li> -->
-                                <li><a href="{{url('#')}}">Deals</a></li>
+                                <!-- <li><a href="">Products</a></li> -->
+                                {{-- <li><a href="{{url('#')}}">Deals</a></li> --}}
                                 
                             </ul>
                         </li>

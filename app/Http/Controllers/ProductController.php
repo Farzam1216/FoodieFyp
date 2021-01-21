@@ -64,7 +64,6 @@ class ProductController extends Controller
             'quantity' => 'required',  
             
         ]);
-
         $product = new Product;
         $product->foreignproductid= $request->input ('foregin');
         $product->name= $request->input ('name');
